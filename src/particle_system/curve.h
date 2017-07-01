@@ -18,6 +18,7 @@ namespace Particles
     public:
 
         Curve(std::vector<T> _data, USize _table_size = 64);
+        Curve(const Range<T>& _value_range, iCurve *_smooth_curve, USize _table_size = 64);
         T operator()(Float _arg);
 
     private:
@@ -27,13 +28,32 @@ namespace Particles
     };
 
     template<typename T>
-    Particles::Curve<T>::Curve(std::vector<T> _data, USize _table_size = 64)
+    Particles::Curve<T>::Curve(std::vector<T> _data, USize _table_size /*= 64*/)
         : table_size  (_table_size)
         , fetch_table (_table_size)
     {
         for (USize i = 0; i < _table_size; ++i)
         {
             fetch_table[i] = (1.0f / (_table_size - 1)) * i;
+        }
+    }
+
+
+    template<typename T>
+    Particles::Curve<T>::Curve(const Range<T>& _value_range, iCurve *_smooth_curve, USize _table_size /*= 64*/)
+        : table_size  (_table_size)
+        , fetch_table (_table_size)
+    {
+        Float max_arg = _smooth_curve->getMaxArgument();
+        if (max_arg == 0)
+        {
+            max_arg = 1.0f;
+        }
+
+        for (USize i = 0; i < _table_size; ++i)
+        {
+            Float lerp_coeff = _smooth_curve->getValue(((Float)i / (table_size - 1)) * max_arg) / 100.0f;
+            fetch_table[i] = Math::lerpStrict(_value_range, lerp_coeff);
         }
     }
 
@@ -50,10 +70,10 @@ namespace Particles
         }
         else
         {
-            Float soft_index = _arg / table_size;
+            Float soft_index = _arg * (table_size - 1);
             USize i = (USize)Math::floor(soft_index);
             USize j = (USize)Math::ceil(soft_index);
-            Float lerp_coeff = (soft_index - (Float)i) * table_size;
+            Float lerp_coeff = (soft_index - (Float)i);
             return Math::lerp(fetch_table[i], fetch_table[j], lerp_coeff);
         }
     }

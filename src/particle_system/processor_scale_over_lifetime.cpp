@@ -25,7 +25,10 @@ Particles::ProcessorScaleOverLifetime::~ProcessorScaleOverLifetime()
 
 void Particles::ProcessorScaleOverLifetime::load()
 {
-    scale_fetcher = new FetcherTransition<Float>(0.5f, 1.5f);
+    //scale_fetcher = new FetcherTransition<Float>(0.5f, 1.5f);
+
+    iCurve *rb_curve = iResourceManager::inst()->getCurve("particles/test.curve", "scale");
+    scale_fetcher = new FetcherCurve<Float>(Curve<Float>(Range<Float>(0.0f, 1.0f), rb_curve));
 }
 
 

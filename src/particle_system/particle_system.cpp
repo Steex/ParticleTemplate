@@ -80,12 +80,15 @@ void Particles::ParticleSystem::update(Float _tick)
         for (USize i = 0; i < particle_count; ++i)
         {
             BaseParticleParams *current_particle = (BaseParticleParams*)(particle_data + particle_size * i);
-            if (current_particle->dead)
+            if (!current_particle->dead)
             {
-                memmove(dest_particle, current_particle, particle_size);
+                memcpy(dest_particle, current_particle, particle_size);
                 dest_particle += particle_size;
             }
         }
+
+        // Update the particle count.
+        particle_count = (dest_particle - particle_data) / particle_size;
     }
 
     // Emit new particles.
@@ -97,7 +100,7 @@ void Particles::ParticleSystem::update(Float _tick)
         create_acc -= create_amount;
         create_amount = min(create_amount, max_particles - particle_count);
 
-        // Zero the particles data.
+        // Zero the particles data (including the 'dead' field).
         memset(particle_data + particle_size * particle_count, 0, particle_size * create_amount);
 
         // Init new particles.
@@ -111,6 +114,7 @@ void Particles::ParticleSystem::update(Float _tick)
             (*processor)->initParticles(particle_data + particle_size * particle_count, particle_size, create_amount);
         }
 
+        // Update the particle count.
         particle_count += create_amount;
     }
 }

@@ -131,8 +131,10 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="particle_system\base_params.h" />
+    <ClInclude Include="particle_system\curve.h" />
     <ClInclude Include="particle_system\emitter.h" />
     <ClInclude Include="particle_system\emitter_rect.h" />
+    <ClInclude Include="particle_system\fetcher.h" />
     <ClInclude Include="particle_system\param_accessor.h" />
     <ClInclude Include="particle_system\param_info_holder.h" />
     <ClInclude Include="particle_system\particle_system.h" />

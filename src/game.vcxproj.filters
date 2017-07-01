@@ -100,6 +100,12 @@
     <ClInclude Include="particle_system\processor_aging.h">
       <Filter>particle_system</Filter>
     </ClInclude>
+    <ClInclude Include="particle_system\curve.h">
+      <Filter>particle_system</Filter>
+    </ClInclude>
+    <ClInclude Include="particle_system\fetcher.h">
+      <Filter>particle_system</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="common\cheat_manager.cpp">

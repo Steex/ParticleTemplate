@@ -9,6 +9,10 @@
 #include <platform_head.h>
 
 
+typedef ptrdiff_t SSize;
+typedef size_t    USize;
+
+
 using UI::cControl;
 
 #ifndef ENTRY_POINT_HERE

@@ -7,6 +7,9 @@
     <Filter Include="common">
       <UniqueIdentifier>{e5502169-3f3c-4c25-a634-f137151a97e0}</UniqueIdentifier>
     </Filter>
+    <Filter Include="particle_system">
+      <UniqueIdentifier>{57742e39-47fc-43a1-a795-dbe7111695c8}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <None Include="app.ico">
@@ -55,6 +58,24 @@
       <Filter>common</Filter>
     </ClInclude>
     <ClInclude Include="head.h" />
+    <ClInclude Include="particle_system\param_accessor.h">
+      <Filter>particle_system</Filter>
+    </ClInclude>
+    <ClInclude Include="particle_system\param_info_holder.h">
+      <Filter>particle_system</Filter>
+    </ClInclude>
+    <ClInclude Include="particle_system\particle_system.h">
+      <Filter>particle_system</Filter>
+    </ClInclude>
+    <ClInclude Include="particle_system\processor.h">
+      <Filter>particle_system</Filter>
+    </ClInclude>
+    <ClInclude Include="particle_system\processor_acceleration.h">
+      <Filter>particle_system</Filter>
+    </ClInclude>
+    <ClInclude Include="particle_system\processor_rotation.h">
+      <Filter>particle_system</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="common\cheat_manager.cpp">
@@ -72,6 +93,18 @@
     <ClCompile Include="tag_manager.cpp" />
     <ClCompile Include="common\particle_viewer.cpp">
       <Filter>common</Filter>
+    </ClCompile>
+    <ClCompile Include="particle_system\param_info_holder.cpp">
+      <Filter>particle_system</Filter>
+    </ClCompile>
+    <ClCompile Include="particle_system\particle_system.cpp">
+      <Filter>particle_system</Filter>
+    </ClCompile>
+    <ClCompile Include="particle_system\processor_acceleration.cpp">
+      <Filter>particle_system</Filter>
+    </ClCompile>
+    <ClCompile Include="particle_system\processor_rotation.cpp">
+      <Filter>particle_system</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

@@ -3,12 +3,15 @@
 // author: Sergey Sotnikov
 
 #include "head.h"
+
 #include "particle_viewer.h"
+#include "particle_control.h"
 
 //-----------------------------------------------------------------------
 
 ParticleViewer::ParticleViewer(cControl *_parent)
 : PARENT_CLASS (_parent)
+, m_particles  (NULL)
 {
 }
 
@@ -24,9 +27,7 @@ void ParticleViewer::onCreate()
 {
     PARENT_CLASS::onCreate();
 
-    show();
-    enable();
-    activate();
+    loadIni(iResourceManager::inst()->getIni("particles/viewer.ini"));
 }
 
 //-----------------------------------------------------------------------
@@ -34,6 +35,17 @@ void ParticleViewer::onCreate()
 void ParticleViewer::onDestroy()
 {
     PARENT_CLASS::onDestroy();
+}
+
+//-----------------------------------------------------------------------
+
+void ParticleViewer::loadIni(iIni *_ini)
+{
+    PARENT_CLASS::loadIni(_ini, "COMMON");
+
+    UI::IniLoader ui(this, _ini);
+
+    m_particles = ui.get<ParticleControl>("PARTICLES");
 }
 
 //-----------------------------------------------------------------------

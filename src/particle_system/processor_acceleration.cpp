@@ -31,6 +31,15 @@ void Particles::ProcessorAcceleration::load()
 
 void Particles::ProcessorAcceleration::initParticles(Byte *_start, USize _stride, USize _count)
 {
+    for (USize i = 0; i < _count; ++i)
+    {
+        current_particle = _start + _stride * i;
+
+        Float angle = -Math::HALF_PI + Math::random(-Math::PI * 0.2f, Math::PI * 0.2f);
+        Float speed = Math::random(100.0f, 200.0f);
+        velocity->x = Math::cos(angle) * speed;
+        velocity->y = Math::sin(angle) * speed;
+    }
 }
 
 

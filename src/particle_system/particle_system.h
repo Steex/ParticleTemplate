@@ -4,9 +4,11 @@
 
 #include "param_info_holder.h"
 
+
 namespace Particles
 {
     class Processor;
+    class Renderer;
 
 
     class ParticleSystem
@@ -18,17 +20,11 @@ namespace Particles
 
         void load();
         void update(Float _tick);
+        void render(Renderer *_renderer);
+
+        USize getMaxCount() const { return max_particles; }
 
     private:
-
-        struct BaseParticleParams
-        {
-            Bool    dead;
-            Vector2 position;
-            Float   scale;
-            Float   angle;
-            Color   color;
-        };
 
         typedef std::vector<Processor*> ProcessorList;
 

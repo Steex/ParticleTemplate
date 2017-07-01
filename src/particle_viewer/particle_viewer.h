@@ -6,6 +6,9 @@
 #define _PARTICLE_VIEWER_INCLUDED__
 
 
+class ParticleControl;
+
+
 class ParticleViewer : public cControl
 {
     typedef cControl PARENT_CLASS;
@@ -27,6 +30,10 @@ protected:
     virtual void onDisable();
 
 private:
+
+    void loadIni(iIni *_ini);
+
+    ParticleControl *m_particles;
 
 };
 

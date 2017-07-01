@@ -1,6 +1,8 @@
 #include "head.h"
 
 #include "particle_system.h"
+#include "base_params.h"
+#include "renderer.h"
 #include "processor_rotation.h"
 #include "processor_acceleration.h"
 
@@ -102,4 +104,11 @@ void Particles::ParticleSystem::update(Float _tick)
 
         particle_count += create_amount;
     }
+}
+
+
+
+void Particles::ParticleSystem::render(Renderer *_renderer)
+{
+    _renderer->renderParticles(particle_data, particle_size, particle_count);
 }

@@ -54,6 +54,7 @@
     <ClInclude Include="common\particle_viewer.h">
       <Filter>common</Filter>
     </ClInclude>
+    <ClInclude Include="head.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="common\cheat_manager.cpp">
@@ -69,7 +70,6 @@
     <ClCompile Include="head.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="tag_manager.cpp" />
-    <ClCompile Include="head.h" />
     <ClCompile Include="common\particle_viewer.cpp">
       <Filter>common</Filter>
     </ClCompile>

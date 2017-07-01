@@ -137,7 +137,7 @@
     <ClInclude Include="particle_system\processor.h" />
     <ClInclude Include="particle_system\processor_acceleration.h" />
     <ClInclude Include="particle_system\processor_rotation.h" />
-    <ClInclude Include="particle_system\renderer.h" />
+    <ClInclude Include="particle_system\inspector.h" />
     <ClInclude Include="particle_viewer\particle_control.h" />
     <ClInclude Include="particle_viewer\particle_renderer.h" />
     <ClInclude Include="particle_viewer\particle_viewer.h" />

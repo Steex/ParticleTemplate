@@ -76,9 +76,6 @@
     <ClInclude Include="particle_system\processor_rotation.h">
       <Filter>particle_system</Filter>
     </ClInclude>
-    <ClInclude Include="particle_system\renderer.h">
-      <Filter>particle_system</Filter>
-    </ClInclude>
     <ClInclude Include="particle_viewer\particle_viewer.h">
       <Filter>particle_viewer</Filter>
     </ClInclude>
@@ -89,6 +86,9 @@
       <Filter>particle_viewer</Filter>
     </ClInclude>
     <ClInclude Include="particle_system\base_params.h">
+      <Filter>particle_system</Filter>
+    </ClInclude>
+    <ClInclude Include="particle_system\inspector.h">
       <Filter>particle_system</Filter>
     </ClInclude>
   </ItemGroup>

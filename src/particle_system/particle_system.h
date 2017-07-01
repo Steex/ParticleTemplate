@@ -8,7 +8,7 @@
 namespace Particles
 {
     class Processor;
-    class Renderer;
+    class Inspector;
 
 
     class ParticleSystem
@@ -20,7 +20,7 @@ namespace Particles
 
         void load();
         void update(Float _tick);
-        void render(Renderer *_renderer);
+        void inspect(Inspector *_inspector) const;
 
         USize getMaxCount() const { return max_particles; }
 

@@ -6,10 +6,10 @@
 #define _PARTICLE_RENDERER_INCLUDED__
 
 
-#include "../particle_system/renderer.h"
+#include "../particle_system/inspector.h"
 
 
-class ParticleRenderer : public Particles::Renderer
+class ParticleRenderer : public Particles::Inspector
 {
 public:
 
@@ -21,7 +21,7 @@ public:
     void setParentTransform(const Matrix3& _transform);
     void setParentColor(const Color& _color);
     void drawParticles();
-    virtual void renderParticles(Byte *_start, USize _stride, USize _count);
+    virtual void inspect(const Byte *_start, USize _stride, USize _count);
 
 private:
 

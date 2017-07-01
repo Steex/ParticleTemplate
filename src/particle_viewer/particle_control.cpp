@@ -56,7 +56,7 @@ void ParticleControl::prepareDraw()
 
     m_renderer->setParentTransform(getCombinedTransform());
     m_renderer->setParentColor(getCombinedColor());
-    m_system->render(m_renderer);
+    m_system->inspect(m_renderer);
 }
 
 //-----------------------------------------------------------------------

@@ -86,11 +86,11 @@ void ParticleRenderer::setParentColor(const Color& _color)
 
 //-----------------------------------------------------------------------
 
-void ParticleRenderer::renderParticles(Byte *_start, USize _stride, USize _count)
+void ParticleRenderer::inspect(const Byte *_start, USize _stride, USize _count)
 {
     for (USize i = 0; i < _count; ++i)
     {
-        Particles::BaseParticleParams *params = (Particles::BaseParticleParams*)(_start + _stride * i);
+        const Particles::BaseParticleParams *params = (const Particles::BaseParticleParams*)(_start + _stride * i);
         Particle& particle = m_particles[i];
 
         // Update particle transform.

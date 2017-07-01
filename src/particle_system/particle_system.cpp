@@ -2,7 +2,7 @@
 
 #include "particle_system.h"
 #include "base_params.h"
-#include "renderer.h"
+#include "inspector.h"
 #include "processor_rotation.h"
 #include "processor_acceleration.h"
 
@@ -108,7 +108,7 @@ void Particles::ParticleSystem::update(Float _tick)
 
 
 
-void Particles::ParticleSystem::render(Renderer *_renderer)
+void Particles::ParticleSystem::inspect(Inspector *_inspector) const
 {
-    _renderer->renderParticles(particle_data, particle_size, particle_count);
+    _inspector->inspect(particle_data, particle_size, particle_count);
 }

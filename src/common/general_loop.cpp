@@ -4,8 +4,8 @@
 
 #include "head.h"
 #include "general_loop.h"
-#include "particle_viewer.h"
 #include "cheat_manager.h"
+#include "particle_viewer/particle_viewer.h"
 
 //-----------------------------------------------------------------------
 

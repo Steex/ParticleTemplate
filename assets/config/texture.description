@@ -1,0 +1,39 @@
+// texture format descriptions
+// 
+// Supported formats:
+// AUTO - A8R8G8B8 for png, R8G8B8 for jpg ...
+// 
+// 32 bit:
+// A8R8G8B8
+//
+// 24 bit:
+// R8G8B8
+// 
+// 16 bit:
+// R5G6B5
+// A1R5G5B5
+// A4R4G4B4
+// A8R3G3B2
+// 
+// 8 bit:
+// R3G3B2
+// 
+// compressed:
+// DXT1
+// DXT2
+// DXT3
+// DXT4
+// DXT5
+
+[Default]
+AUTO
+
+[AUTO]
+
+[A8R8G8B8]
+
+[R8G8B8]
+
+[R5G6B5]
+
+[A4R4G4B4]

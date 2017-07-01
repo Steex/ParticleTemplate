@@ -1,0 +1,13 @@
+/build
+/*.exe
+/*.ilk
+/*.pdb
+/OpenAL32.dll
+/wrap_oal.dll
+
+/src/ipch
+/src/*.user
+/src/*.suo
+/src/*.ncb
+/src/*.sdf
+/src/*.opensdf

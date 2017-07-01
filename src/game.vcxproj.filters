@@ -1,0 +1,77 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="resource files">
+      <UniqueIdentifier>{4532792c-46d6-4edb-a14b-300b443e817d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="common">
+      <UniqueIdentifier>{e5502169-3f3c-4c25-a634-f137151a97e0}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.ico">
+      <Filter>resource files</Filter>
+    </None>
+    <None Include="error_icon.bmp">
+      <Filter>resource files</Filter>
+    </None>
+    <None Include="version.rch">
+      <Filter>resource files</Filter>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="app.rc">
+      <Filter>resource files</Filter>
+    </ResourceCompile>
+    <ResourceCompile Include="debug.rc">
+      <Filter>resource files</Filter>
+    </ResourceCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="resource_debug.h">
+      <Filter>resource files</Filter>
+    </ClInclude>
+    <ClInclude Include="version.h">
+      <Filter>resource files</Filter>
+    </ClInclude>
+    <ClInclude Include="winres.h">
+      <Filter>resource files</Filter>
+    </ClInclude>
+    <ClInclude Include="common\cheat_manager.h">
+      <Filter>common</Filter>
+    </ClInclude>
+    <ClInclude Include="common\general_loop.h">
+      <Filter>common</Filter>
+    </ClInclude>
+    <ClInclude Include="common\loop.h">
+      <Filter>common</Filter>
+    </ClInclude>
+    <ClInclude Include="common\periodic_event.h">
+      <Filter>common</Filter>
+    </ClInclude>
+    <ClInclude Include="game_types.h" />
+    <ClInclude Include="tag_manager.h" />
+    <ClInclude Include="common\particle_viewer.h">
+      <Filter>common</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="common\cheat_manager.cpp">
+      <Filter>common</Filter>
+    </ClCompile>
+    <ClCompile Include="common\general_loop.cpp">
+      <Filter>common</Filter>
+    </ClCompile>
+    <ClCompile Include="common\periodic_event.cpp">
+      <Filter>common</Filter>
+    </ClCompile>
+    <ClCompile Include="game_api.cpp" />
+    <ClCompile Include="head.cpp" />
+    <ClCompile Include="main.cpp" />
+    <ClCompile Include="tag_manager.cpp" />
+    <ClCompile Include="head.h" />
+    <ClCompile Include="common\particle_viewer.cpp">
+      <Filter>common</Filter>
+    </ClCompile>
+  </ItemGroup>
+</Project>

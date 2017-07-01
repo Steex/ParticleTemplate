@@ -1,0 +1,295 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="debug|Android">
+      <Configuration>debug</Configuration>
+      <Platform>Android</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="debug|Win32">
+      <Configuration>debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="release|Android">
+      <Configuration>release</Configuration>
+      <Platform>Android</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="release|Win32">
+      <Configuration>release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{4BF2FFAD-5CF8-4FF8-B238-330BC8B9B66B}</ProjectGuid>
+    <RootNamespace>game</RootNamespace>
+    <Keyword>Win32Proj</Keyword>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='release|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='release|Android'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='debug|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='debug|Android'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='release|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='release|Android'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='debug|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='debug|Android'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup>
+    <_ProjectFileVersion>10.0.40219.1</_ProjectFileVersion>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='debug|Win32'">..\</OutDir>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='debug|Android'">../libs/$(Configuration)/$(ArchStlDirName)/</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='debug|Win32'">..\build\$(Configuration)\</IntDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='debug|Android'">../obj/$(ProjectName)/$(Configuration)/$(PlatformName)/$(AndroidArch)/</IntDir>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='debug|Win32'">true</LinkIncremental>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='debug|Android'">true</LinkIncremental>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='release|Win32'">..\</OutDir>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='release|Android'">../libs/$(Configuration)/$(ArchStlDirName)/</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='release|Win32'">..\build\$(Configuration)\</IntDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='release|Android'">../obj/$(ProjectName)/$(Configuration)/$(PlatformName)/$(AndroidArch)/</IntDir>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='release|Win32'">false</LinkIncremental>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='release|Android'">false</LinkIncremental>
+    <CodeAnalysisRuleSet Condition="'$(Configuration)|$(Platform)'=='debug|Win32'">AllRules.ruleset</CodeAnalysisRuleSet>
+    <CodeAnalysisRuleSet Condition="'$(Configuration)|$(Platform)'=='debug|Android'">AllRules.ruleset</CodeAnalysisRuleSet>
+    <CodeAnalysisRules Condition="'$(Configuration)|$(Platform)'=='debug|Win32'" />
+    <CodeAnalysisRules Condition="'$(Configuration)|$(Platform)'=='debug|Android'" />
+    <CodeAnalysisRuleAssemblies Condition="'$(Configuration)|$(Platform)'=='debug|Win32'" />
+    <CodeAnalysisRuleAssemblies Condition="'$(Configuration)|$(Platform)'=='debug|Android'" />
+    <CodeAnalysisRuleSet Condition="'$(Configuration)|$(Platform)'=='release|Win32'">AllRules.ruleset</CodeAnalysisRuleSet>
+    <CodeAnalysisRuleSet Condition="'$(Configuration)|$(Platform)'=='release|Android'">AllRules.ruleset</CodeAnalysisRuleSet>
+    <CodeAnalysisRules Condition="'$(Configuration)|$(Platform)'=='release|Win32'" />
+    <CodeAnalysisRules Condition="'$(Configuration)|$(Platform)'=='release|Android'" />
+    <CodeAnalysisRuleAssemblies Condition="'$(Configuration)|$(Platform)'=='release|Win32'" />
+    <CodeAnalysisRuleAssemblies Condition="'$(Configuration)|$(Platform)'=='release|Android'" />
+    <IncludePath Condition="'$(Configuration)|$(Platform)'=='debug|Win32'">$(WindowsSdkDir)include;$(IncludePath)</IncludePath>
+    <IncludePath Condition="'$(Configuration)|$(Platform)'=='release|Win32'">$(WindowsSdkDir)include;$(IncludePath)</IncludePath>
+    <ExtensionsToDeleteOnClean Condition="'$(Configuration)|$(Platform)'=='debug|Android'">*.o;*.d;*.gch;*.lastbuildstate;*.tlog;*.log;*.unsuccessfulbuild;$(ExtensionsToDeleteOnClean)</ExtensionsToDeleteOnClean>
+    <ExtensionsToDeleteOnClean Condition="'$(Configuration)|$(Platform)'=='release|Android'">*.o;*.d;*.gch;*.lastbuildstate;*.tlog;*.log;*.unsuccessfulbuild;$(ExtensionsToDeleteOnClean)</ExtensionsToDeleteOnClean>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='debug|Android'">lib$(ProjectName)</TargetName>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='release|Android'">lib$(ProjectName)</TargetName>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='debug|Win32'">particles_$(Configuration)</TargetName>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='release|Win32'">particles_$(Configuration)</TargetName>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='debug|Win32'">
+    <ClCompile>
+      <Optimization>Disabled</Optimization>
+      <AdditionalIncludeDirectories>$(RB5_ROOT)/src;$(RB5_ROOT)/include;$(ProjectDir);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_WINDOWS;PLATFORM_WINDOWS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
+      <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeaderFile>head.h</PrecompiledHeaderFile>
+      <WarningLevel>Level3</WarningLevel>
+      <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
+    </ClCompile>
+    <ProjectReference>
+      <LinkLibraryDependencies>false</LinkLibraryDependencies>
+    </ProjectReference>
+    <Link>
+      <AdditionalDependencies>libogg.lib;libvorbis.lib;libvorbisfile.lib;OpenAL32.lib;D3dxof.lib;D3d9.lib;d3dx9.lib;rb_platform.lib;rb_common.lib;zlibstat.lib;bfg.lib;purchase.lib;libpng.lib;expat.lib;jpeg.lib;json.lib;metrics.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <OutputFile>$(OutDir)game_debug.exe</OutputFile>
+      <AdditionalLibraryDirectories>$(RB5_ROOT)/lib/debug/win/;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <IgnoreAllDefaultLibraries>false</IgnoreAllDefaultLibraries>
+      <IgnoreSpecificDefaultLibraries>libcmt;%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <SubSystem>Windows</SubSystem>
+      <RandomizedBaseAddress>false</RandomizedBaseAddress>
+      <DataExecutionPrevention>
+      </DataExecutionPrevention>
+      <TargetMachine>MachineX86</TargetMachine>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='debug|Android'">
+    <ClCompile>
+      <Optimization>Disabled</Optimization>
+      <AdditionalIncludeDirectories>$(RB5_ROOT)/src;$(RB5_ROOT)/include;$(ProjectDir)/;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>_DEBUG;PLATFORM_ANDROID;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeaderFile>head.h</PrecompiledHeaderFile>
+    </ClCompile>
+    <Link>
+      <AdditionalLibraryDirectories>$(RB5_ROOT)/lib/$(Configuration)/droid/$(AndroidArch)/;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AndroidSystemLibs>rb_platform;android;c;m;log;gcc;dl;EGL;GLESv1_CM;OpenSLES</AndroidSystemLibs>
+      <AdditionalDependencies>rb_platform;rb_common;vorbisfile;vorbis;ogg;png;expat;jpeg;json;zlibstat;bfg;purchase;openal-soft;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+    <AntBuild>
+      <AntBuildPath>$(ProjectDir)/../</AntBuildPath>
+      <AntBuildType>NoBuild</AntBuildType>
+      <AntDeploy>Deploy</AntDeploy>
+    </AntBuild>
+    <ProjectReference>
+      <UseLibraryDependencyInputs>true</UseLibraryDependencyInputs>
+    </ProjectReference>
+    <PreBuildEvent>
+      <Command>echo *** Copy Java parts***
+echo.
+xcopy /Y "$(RB5_ROOT)\src\droid\java\*.java" "..\java"
+echo *** Complete ***</Command>
+    </PreBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='release|Win32'">
+    <ClCompile>
+      <InlineFunctionExpansion>AnySuitable</InlineFunctionExpansion>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <FavorSizeOrSpeed>Speed</FavorSizeOrSpeed>
+      <OmitFramePointers>true</OmitFramePointers>
+      <WholeProgramOptimization>true</WholeProgramOptimization>
+      <AdditionalIncludeDirectories>$(RB5_ROOT)/src;$(RB5_ROOT)/include;$(ProjectDir);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_WINDOWS;PLATFORM_WINDOWS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <StringPooling>true</StringPooling>
+      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeaderFile>head.h</PrecompiledHeaderFile>
+      <WarningLevel>Level3</WarningLevel>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+    </ClCompile>
+    <ProjectReference>
+      <LinkLibraryDependencies>false</LinkLibraryDependencies>
+    </ProjectReference>
+    <Link>
+      <AdditionalDependencies>libogg.lib;libvorbis.lib;libvorbisfile.lib;OpenAL32.lib;D3dxof.lib;D3d9.lib;d3dx9.lib;rb_platform.lib;rb_common.lib;zlibstat.lib;bfg.lib;purchase.lib;libpng.lib;expat.lib;jpeg.lib;json.lib;metrics.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <OutputFile>$(OutDir)game.exe</OutputFile>
+      <AdditionalLibraryDirectories>$(RB5_ROOT)/lib/release/win/;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <IgnoreAllDefaultLibraries>false</IgnoreAllDefaultLibraries>
+      <IgnoreSpecificDefaultLibraries>%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <SubSystem>Windows</SubSystem>
+      <OptimizeReferences>true</OptimizeReferences>
+      <EnableCOMDATFolding>false</EnableCOMDATFolding>
+      <LinkTimeCodeGeneration>UseLinkTimeCodeGeneration</LinkTimeCodeGeneration>
+      <DataExecutionPrevention>
+      </DataExecutionPrevention>
+      <TargetMachine>MachineX86</TargetMachine>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='release|Android'">
+    <ClCompile>
+      <OmitFramePointers>true</OmitFramePointers>
+      <AdditionalIncludeDirectories>$(RB5_ROOT)/src;$(RB5_ROOT)/include;$(ProjectDir)/;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>NDEBUG;PLATFORM_ANDROID;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeaderFile>head.h</PrecompiledHeaderFile>
+    </ClCompile>
+    <Link>
+      <AdditionalDependencies>rb_platform;rb_common;vorbisfile;vorbis;ogg;png;expat;jpeg;json;zlibstat;bfg;purchase;openal-soft;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>$(RB5_ROOT)/lib/$(Configuration)/droid/$(AndroidArch)/;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AndroidSystemLibs>rb_platform;android;c;m;log;gcc;dl;EGL;GLESv1_CM;OpenSLES</AndroidSystemLibs>
+    </Link>
+    <AntBuild>
+      <AntBuildPath>$(ProjectDir)/../</AntBuildPath>
+      <AntBuildType>Release</AntBuildType>
+      <AntDeploy>DeployAndRun</AntDeploy>
+      <AntLibraryName>$(TargetName)</AntLibraryName>
+    </AntBuild>
+    <PreBuildEvent>
+      <Command>echo *** Copy Java parts***
+echo.
+xcopy /Y "$(RB5_ROOT)\src\droid\java\*.java" "..\java"
+echo *** Complete ***</Command>
+    </PreBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <None Include="app.ico">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='debug|Android'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='release|Android'">true</ExcludedFromBuild>
+    </None>
+    <None Include="error_icon.bmp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='debug|Android'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='release|Android'">true</ExcludedFromBuild>
+    </None>
+    <None Include="version.rch">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='debug|Android'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='release|Android'">true</ExcludedFromBuild>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="app.rc">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='debug|Android'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='release|Android'">true</ExcludedFromBuild>
+    </ResourceCompile>
+    <ResourceCompile Include="debug.rc">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='debug|Android'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='release|Android'">true</ExcludedFromBuild>
+    </ResourceCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="common\particle_viewer.h" />
+    <ClInclude Include="resource_debug.h">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='debug|Android'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='release|Android'">true</ExcludedFromBuild>
+    </ClInclude>
+    <ClInclude Include="version.h">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='debug|Android'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='release|Android'">true</ExcludedFromBuild>
+    </ClInclude>
+    <ClInclude Include="winres.h">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='debug|Android'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='release|Android'">true</ExcludedFromBuild>
+    </ClInclude>
+    <ClInclude Include="common\cheat_manager.h" />
+    <ClInclude Include="common\general_loop.h" />
+    <ClInclude Include="common\loop.h" />
+    <ClInclude Include="common\periodic_event.h" />
+    <CustomBuildStep Include="common\sound\ambient_player.h" />
+    <CustomBuildStep Include="common\sound\extended_sound.h" />
+    <CustomBuildStep Include="common\sound\music_muffler.h" />
+    <CustomBuildStep Include="common\sound\music_player.h" />
+    <CustomBuildStep Include="common\sound\music_set.h" />
+    <CustomBuildStep Include="common\sound\music_set_files.h" />
+    <CustomBuildStep Include="common\sound\sound_player.h" />
+    <ClInclude Include="game_types.h" />
+    <ClCompile Include="common\particle_viewer.cpp" />
+    <ClCompile Include="head.h">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='release|Android'">Create</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='debug|Android'">Create</PrecompiledHeader>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='debug|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='release|Win32'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClInclude Include="tag_manager.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="common\cheat_manager.cpp" />
+    <ClCompile Include="common\general_loop.cpp" />
+    <ClCompile Include="common\periodic_event.cpp" />
+    <ClCompile Include="game_api.cpp" />
+    <ClCompile Include="head.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='debug|Win32'">Create</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='release|Win32'">Create</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="main.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='debug|Win32'">
+      </PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='debug|Android'">
+      </PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='release|Win32'">
+      </PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='release|Android'">
+      </PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="tag_manager.cpp" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

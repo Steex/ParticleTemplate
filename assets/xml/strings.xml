@@ -1,0 +1,184 @@
+<?xml version="1.0"?>
+<?mso-application progid="Excel.Sheet"?>
+<Workbook xmlns="urn:schemas-microsoft-com:office:spreadsheet"
+ xmlns:o="urn:schemas-microsoft-com:office:office"
+ xmlns:x="urn:schemas-microsoft-com:office:excel"
+ xmlns:ss="urn:schemas-microsoft-com:office:spreadsheet"
+ xmlns:html="http://www.w3.org/TR/REC-html40"
+ xmlns:x2="http://schemas.microsoft.com/office/excel/2003/xml"
+ xmlns:udc="http://schemas.microsoft.com/data/udc"
+ xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+ xmlns:udcxf="http://schemas.microsoft.com/data/udc/xmlfile">
+ <DocumentProperties xmlns="urn:schemas-microsoft-com:office:office">
+  <Created>2006-09-16T00:00:00Z</Created>
+  <LastSaved>2011-07-06T10:45:40Z</LastSaved>
+  <Version>12.00</Version>
+ </DocumentProperties>
+ <OfficeDocumentSettings xmlns="urn:schemas-microsoft-com:office:office">
+  <RemovePersonalInformation/>
+ </OfficeDocumentSettings>
+ <ExcelWorkbook xmlns="urn:schemas-microsoft-com:office:excel">
+  <WindowHeight>12030</WindowHeight>
+  <WindowWidth>12615</WindowWidth>
+  <WindowTopX>-15</WindowTopX>
+  <WindowTopY>-15</WindowTopY>
+  <RefModeR1C1/>
+  <ProtectStructure>False</ProtectStructure>
+  <ProtectWindows>False</ProtectWindows>
+  <FutureVer>11</FutureVer>
+ </ExcelWorkbook>
+ <Styles>
+  <Style ss:ID="Default" ss:Name="Normal">
+   <Alignment ss:Vertical="Bottom"/>
+   <Borders/>
+   <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11" ss:Color="#000000"/>
+   <Interior/>
+   <NumberFormat/>
+   <Protection/>
+  </Style>
+  <Style ss:ID="s63">
+   <Alignment ss:Horizontal="Center" ss:Vertical="Center" ss:WrapText="1"/>
+   <Borders>
+    <Border ss:Position="Bottom" ss:LineStyle="Continuous" ss:Weight="1"/>
+    <Border ss:Position="Left" ss:LineStyle="Continuous" ss:Weight="2"/>
+    <Border ss:Position="Right" ss:LineStyle="Continuous" ss:Weight="2"/>
+    <Border ss:Position="Top" ss:LineStyle="Continuous" ss:Weight="2"/>
+   </Borders>
+   <Font ss:FontName="Arial Cyr" x:Family="Swiss" ss:Bold="1"/>
+   <Interior ss:Color="#FFFF00" ss:Pattern="Solid"/>
+   <NumberFormat/>
+  </Style>
+  <Style ss:ID="s64">
+   <Alignment ss:Horizontal="Center" ss:Vertical="Center" ss:WrapText="1"/>
+   <Borders>
+    <Border ss:Position="Bottom" ss:LineStyle="Continuous" ss:Weight="2"/>
+    <Border ss:Position="Right" ss:LineStyle="Continuous" ss:Weight="2"/>
+    <Border ss:Position="Top" ss:LineStyle="Continuous" ss:Weight="2"/>
+   </Borders>
+   <Font ss:FontName="Arial Cyr" x:CharSet="204" x:Family="Swiss" ss:Bold="1"/>
+   <Interior ss:Color="#FFFF00" ss:Pattern="Solid"/>
+  </Style>
+  <Style ss:ID="s65">
+   <Alignment ss:Horizontal="Center" ss:Vertical="Center" ss:WrapText="1"/>
+   <Borders>
+    <Border ss:Position="Bottom" ss:LineStyle="Continuous" ss:Weight="2"/>
+    <Border ss:Position="Left" ss:LineStyle="Continuous" ss:Weight="2"/>
+    <Border ss:Position="Right" ss:LineStyle="Continuous" ss:Weight="2"/>
+    <Border ss:Position="Top" ss:LineStyle="Continuous" ss:Weight="2"/>
+   </Borders>
+   <Font ss:FontName="Arial Cyr" x:CharSet="204" x:Family="Swiss" ss:Bold="1"/>
+   <Interior ss:Color="#FFFF00" ss:Pattern="Solid"/>
+  </Style>
+  <Style ss:ID="s66">
+   <Alignment ss:Horizontal="Center" ss:Vertical="Center" ss:WrapText="1"/>
+   <Borders>
+    <Border ss:Position="Bottom" ss:LineStyle="Continuous" ss:Weight="2"/>
+    <Border ss:Position="Left" ss:LineStyle="Continuous" ss:Weight="2"/>
+    <Border ss:Position="Right" ss:LineStyle="Continuous" ss:Weight="2"/>
+   </Borders>
+   <Font ss:FontName="Arial Cyr" x:CharSet="204" x:Family="Swiss" ss:Bold="1"/>
+   <Interior ss:Color="#FFFF00" ss:Pattern="Solid"/>
+  </Style>
+  <Style ss:ID="s67">
+   <Alignment ss:Horizontal="Center" ss:Vertical="Center" ss:WrapText="1"/>
+   <Borders>
+    <Border ss:Position="Bottom" ss:LineStyle="Continuous" ss:Weight="1"/>
+    <Border ss:Position="Left" ss:LineStyle="Continuous" ss:Weight="2"/>
+    <Border ss:Position="Right" ss:LineStyle="Continuous" ss:Weight="2"/>
+    <Border ss:Position="Top" ss:LineStyle="Continuous" ss:Weight="2"/>
+   </Borders>
+   <Font ss:FontName="Arial Cyr" x:Family="Swiss" ss:Bold="1"/>
+   <Interior ss:Color="#FFFF00" ss:Pattern="Solid"/>
+  </Style>
+  <Style ss:ID="s68">
+   <Alignment ss:Horizontal="Center" ss:Vertical="Center" ss:WrapText="1"/>
+   <Borders>
+    <Border ss:Position="Bottom" ss:LineStyle="Continuous" ss:Weight="1"/>
+    <Border ss:Position="Left" ss:LineStyle="Continuous" ss:Weight="2"/>
+    <Border ss:Position="Right" ss:LineStyle="Continuous" ss:Weight="2"/>
+    <Border ss:Position="Top" ss:LineStyle="Continuous" ss:Weight="1"/>
+   </Borders>
+   <Interior ss:Color="#FFFF00" ss:Pattern="Solid"/>
+  </Style>
+  <Style ss:ID="s69">
+   <Alignment ss:Horizontal="Center" ss:Vertical="Center" ss:WrapText="1"/>
+   <Borders>
+    <Border ss:Position="Bottom" ss:LineStyle="Continuous" ss:Weight="1"/>
+    <Border ss:Position="Left" ss:LineStyle="Continuous" ss:Weight="2"/>
+    <Border ss:Position="Right" ss:LineStyle="Continuous" ss:Weight="2"/>
+   </Borders>
+   <Interior ss:Color="#FFFF00" ss:Pattern="Solid"/>
+  </Style>
+  <Style ss:ID="s70">
+   <Alignment ss:Vertical="Bottom" ss:WrapText="1"/>
+  </Style>
+ </Styles>
+ <Worksheet ss:Name="System">
+  <Table ss:ExpandedColumnCount="9" ss:ExpandedRowCount="4" x:FullColumns="1"
+   x:FullRows="1" ss:DefaultRowHeight="15">
+   <Column ss:AutoFitWidth="0" ss:Width="172.5"/>
+   <Column ss:AutoFitWidth="0" ss:Width="327.75"/>
+   <Column ss:AutoFitWidth="0" ss:Width="272.25"/>
+   <Column ss:Width="112.5"/>
+   <Column ss:Width="104.25"/>
+   <Column ss:AutoFitWidth="0" ss:Width="156.75"/>
+   <Column ss:AutoFitWidth="0" ss:Width="69"/>
+   <Column ss:AutoFitWidth="0" ss:Width="81"/>
+   <Column ss:AutoFitWidth="0" ss:Width="152.25"/>
+   <Row ss:AutoFitHeight="0" ss:Height="30.75">
+    <Cell ss:StyleID="s63"><Data ss:Type="String">id</Data><Comment
+      ss:Author="Автор"><ss:Data xmlns="http://www.w3.org/TR/REC-html40"><B><Font
+         html:Face="Tahoma" x:Family="Swiss" html:Size="8" html:Color="#000000">Автор:</Font></B><Font
+        html:Face="Tahoma" x:Family="Swiss" html:Size="8" html:Color="#000000">&#10;string name in INI file&#10;</Font></ss:Data></Comment></Cell>
+    <Cell ss:StyleID="s64"><Data ss:Type="String">en</Data><Comment
+      ss:Author="Автор"><ss:Data xmlns="http://www.w3.org/TR/REC-html40"><B><Font
+         html:Face="Tahoma" x:Family="Swiss" html:Size="8" html:Color="#000000">Автор:</Font></B><Font
+        html:Face="Tahoma" x:Family="Swiss" html:Size="8" html:Color="#000000">&#10;String&#10;</Font></ss:Data></Comment></Cell>
+    <Cell ss:StyleID="s65"><Data ss:Type="String">ru</Data></Cell>
+    <Cell ss:StyleID="s66"><Data ss:Type="String">Current Count</Data></Cell>
+    <Cell ss:StyleID="s66"><Data ss:Type="String">Localized Count</Data></Cell>
+    <Cell ss:StyleID="s67"><Data ss:Type="String">File Location</Data></Cell>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">Cheat Code / Scenario</Data></Cell>
+    <Cell ss:StyleID="s69"><Data ss:Type="String">Image Special instructions</Data></Cell>
+    <Cell ss:StyleID="s69"><Data ss:Type="String">Screenshot</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">window_title</Data></Cell>
+    <Cell><Data ss:Type="String">Particle Template</Data></Cell>
+    <Cell><Data ss:Type="String">Particle Template</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:StyleID="s70"/>
+   <Row ss:AutoFitHeight="0" ss:StyleID="s70">
+    <Cell><Data ss:Type="String">standard_error_message</Data></Cell>
+    <Cell><Data ss:Type="String">We've crashed!</Data></Cell>
+    <Cell><Data ss:Type="String">Приложение приказало долго жить...</Data></Cell>
+   </Row>
+  </Table>
+  <WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">
+   <PageSetup>
+    <Header x:Margin="0.3"/>
+    <Footer x:Margin="0.3"/>
+    <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
+   </PageSetup>
+   <Unsynced/>
+   <Selected/>
+   <ProtectObjects>False</ProtectObjects>
+   <ProtectScenarios>False</ProtectScenarios>
+  </WorksheetOptions>
+ </Worksheet>
+ <x2:MapInfo x2:HideInactiveListBorder="false">
+  <x2:Schema x2:ID="Schema5" x2:Namespace=""><xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns=""><xsd:element nillable="true" name="game"><xsd:complexType><xsd:sequence minOccurs="0"><xsd:element minOccurs="0" nillable="true" name="Main_Menu" form="unqualified"><xsd:complexType><xsd:sequence minOccurs="0"><xsd:element minOccurs="0" nillable="true" type="xsd:string" name="continue_game" form="unqualified"></xsd:element><xsd:element minOccurs="0" nillable="true" type="xsd:string" name="start_new_game" form="unqualified"></xsd:element><xsd:element minOccurs="0" nillable="true" type="xsd:string" name="high_score" form="unqualified"></xsd:element><xsd:element minOccurs="0" nillable="true" type="xsd:string" name="options" form="unqualified"></xsd:element><xsd:element minOccurs="0" nillable="true" type="xsd:string" name="quit" form="unqualified"></xsd:element></xsd:sequence></xsd:complexType></xsd:element><xsd:element minOccurs="0" nillable="true" name="MM_Start_New_Game" form="unqualified"><xsd:complexType><xsd:sequence minOccurs="0"><xsd:element minOccurs="0" nillable="true" type="xsd:string" name="yes" form="unqualified"></xsd:element><xsd:element minOccurs="0" nillable="true" type="xsd:string" name="no" form="unqualified"></xsd:element><xsd:element minOccurs="0" nillable="true" type="xsd:string" name="throw_all_away" form="unqualified"></xsd:element><xsd:element minOccurs="0" nillable="true" type="xsd:string" name="start_new_profile" form="unqualified"></xsd:element></xsd:sequence></xsd:complexType></xsd:element><xsd:element minOccurs="0" nillable="true" name="MM_Options" form="unqualified"><xsd:complexType><xsd:sequence minOccurs="0"><xsd:element minOccurs="0" nillable="true" type="xsd:string" name="sound_effects" form="unqualified"></xsd:element><xsd:element minOccurs="0" nillable="true" type="xsd:string" name="music" form="unqualified"></xsd:element><xsd:element minOccurs="0" nillable="true" type="xsd:string" name="ambient_sounds" form="unqualified"></xsd:element><xsd:element minOccurs="0" nillable="true" type="xsd:string" name="full_screen" form="unqualified"></xsd:element></xsd:sequence></xsd:complexType></xsd:element></xsd:sequence><xsd:attribute name="title" form="unqualified" type="xsd:string"></xsd:attribute></xsd:complexType></xsd:element></xsd:schema></x2:Schema>
+  <x2:Map x2:ID="game_Map" x2:SchemaID="Schema5" x2:RootElement="game">
+  </x2:Map>
+ </x2:MapInfo>
+ <x2:Binding x2:ID="Binding1" x2:LoadMode="normal">
+  <x2:MapID>game_Map</x2:MapID>
+<udc:DataSource MajorVersion="1" MinorVersion="0" xmlns:udc="http://schemas.microsoft.com/data/udc">
+  <udc:Type Type="XMLFile" MajorVersion="1" MinorVersion="0"/>
+  <udc:Name>Binding1</udc:Name>
+  <udc:ConnectionInfo Purpose="Query">
+    <udcxf:File xmlns:udcxf="http://schemas.microsoft.com/data/udc/xmlfile">C:\Documents and Settings\pat\Desktop\RR2 XML Example\RanchRush2_Data_ver2.xml</udcxf:File>
+  </udc:ConnectionInfo>
+</udc:DataSource>
+ </x2:Binding>
+</Workbook>

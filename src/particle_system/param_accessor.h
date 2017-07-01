@@ -1,5 +1,5 @@
-#ifndef _PARAM_ACCESSOR_INCLUDED_
-#define _PARAM_ACCESSOR_INCLUDED_
+#ifndef _PSYS_PARAM_ACCESSOR_INCLUDED_
+#define _PSYS_PARAM_ACCESSOR_INCLUDED_
 
 
 namespace Particles
@@ -24,4 +24,4 @@ namespace Particles
 }
 
 
-#endif // _PARAM_ACCESSOR_INCLUDED_
+#endif // _PSYS_PARAM_ACCESSOR_INCLUDED_

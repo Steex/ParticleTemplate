@@ -1,5 +1,5 @@
-#ifndef _PARAM_INFO_HOLDER_INCLUDED_
-#define _PARAM_INFO_HOLDER_INCLUDED_
+#ifndef _PSYS_PARAM_INFO_HOLDER_INCLUDED_
+#define _PSYS_PARAM_INFO_HOLDER_INCLUDED_
 
 
 namespace Particles
@@ -38,4 +38,4 @@ namespace Particles
 }
 
 
-#endif // _PARAM_INFO_HOLDER_INCLUDED_
+#endif // _PSYS_PARAM_INFO_HOLDER_INCLUDED_

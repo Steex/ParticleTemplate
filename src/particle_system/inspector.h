@@ -1,5 +1,5 @@
-#ifndef _INSPECTOR_INCLUDED_
-#define _INSPECTOR_INCLUDED_
+#ifndef _PSYS_INSPECTOR_INCLUDED_
+#define _PSYS_INSPECTOR_INCLUDED_
 
 
 namespace Particles
@@ -14,4 +14,4 @@ namespace Particles
 }
 
 
-#endif // _INSPECTOR_INCLUDED_
+#endif // _PSYS_INSPECTOR_INCLUDED_

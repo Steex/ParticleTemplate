@@ -1,5 +1,5 @@
-#ifndef _BASE_PARAMS_INCLUDED_
-#define _BASE_PARAMS_INCLUDED_
+#ifndef _PSYS_BASE_PARAMS_INCLUDED_
+#define _PSYS_BASE_PARAMS_INCLUDED_
 
 
 namespace Particles
@@ -15,4 +15,4 @@ namespace Particles
 }
 
 
-#endif // _BASE_PARAMS_INCLUDED_
+#endif // _PSYS_BASE_PARAMS_INCLUDED_

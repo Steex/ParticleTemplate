@@ -1,5 +1,5 @@
-#ifndef _PARTICLE_PARAMS_INFO_INCLUDED_
-#define _PARTICLE_PARAMS_INFO_INCLUDED_
+#ifndef _PSYS_PARTICLE_PARAMS_INFO_INCLUDED_
+#define _PSYS_PARTICLE_PARAMS_INFO_INCLUDED_
 
 
 #include "param_info_holder.h"
@@ -40,4 +40,4 @@ namespace Particles
 }
 
 
-#endif // _PARTICLE_PARAMS_INFO_INCLUDED_
+#endif // _PSYS_PARTICLE_PARAMS_INFO_INCLUDED_

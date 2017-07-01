@@ -1,5 +1,5 @@
-#ifndef _PROCESSOR_INCLUDED_
-#define _PROCESSOR_INCLUDED_
+#ifndef _PSYS_PROCESSOR_INCLUDED_
+#define _PSYS_PROCESSOR_INCLUDED_
 
 
 namespace Particles
@@ -21,4 +21,4 @@ namespace Particles
 }
 
 
-#endif // _PROCESSOR_INCLUDED_
+#endif // _PSYS_PROCESSOR_INCLUDED_

@@ -91,6 +91,12 @@
     <ClInclude Include="particle_system\inspector.h">
       <Filter>particle_system</Filter>
     </ClInclude>
+    <ClInclude Include="particle_system\emitter.h">
+      <Filter>particle_system</Filter>
+    </ClInclude>
+    <ClInclude Include="particle_system\emitter_rect.h">
+      <Filter>particle_system</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="common\cheat_manager.cpp">
@@ -126,6 +132,9 @@
     </ClCompile>
     <ClCompile Include="particle_viewer\particle_renderer.cpp">
       <Filter>particle_viewer</Filter>
+    </ClCompile>
+    <ClCompile Include="particle_system\emitter_rect.cpp">
+      <Filter>particle_system</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

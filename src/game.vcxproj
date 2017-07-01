@@ -131,6 +131,8 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="particle_system\base_params.h" />
+    <ClInclude Include="particle_system\emitter.h" />
+    <ClInclude Include="particle_system\emitter_rect.h" />
     <ClInclude Include="particle_system\param_accessor.h" />
     <ClInclude Include="particle_system\param_info_holder.h" />
     <ClInclude Include="particle_system\particle_system.h" />
@@ -174,6 +176,7 @@
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='release|Win32'">
       </PrecompiledHeader>
     </ClCompile>
+    <ClCompile Include="particle_system\emitter_rect.cpp" />
     <ClCompile Include="particle_system\param_info_holder.cpp" />
     <ClCompile Include="particle_system\particle_system.cpp" />
     <ClCompile Include="particle_system\processor_acceleration.cpp" />

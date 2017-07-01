@@ -7,6 +7,7 @@
 
 namespace Particles
 {
+    class Emitter;
     class Processor;
     class Inspector;
 
@@ -30,6 +31,7 @@ namespace Particles
 
 
         ParamInfoHolder param_info;
+        Emitter *emitter;
         ProcessorList processors;
         USize max_particles;
         USize particle_count;

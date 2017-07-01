@@ -2,7 +2,11 @@
 
 #include "particle_system.h"
 #include "base_params.h"
+#include "emitter.h"
+#include "processor.h"
 #include "inspector.h"
+
+#include "emitter_rect.h"
 #include "processor_rotation.h"
 #include "processor_acceleration.h"
 
@@ -37,6 +41,11 @@ void Particles::ParticleSystem::load()
     param_info.registerParam<Float>("angle");
     param_info.registerParam<Color>("color");
 
+
+    // Create an emitter.
+    emitter = new EmitterRect(param_info);
+    emitter->load();
+
     // Create processing blocks.
     ProcessorRotation *rotation = new ProcessorRotation(param_info);
     rotation->load();
@@ -60,9 +69,9 @@ void Particles::ParticleSystem::update(Float _tick)
     if (particle_count > 0)
     {
         // Update particles.
-        for (ProcessorList::iterator proc = processors.begin(); proc != processors.end(); ++proc)
+        FOREACH (ProcessorList::iterator, processor, processors)
         {
-            (*proc)->updateParticles(particle_data, particle_size, particle_count, _tick);
+            (*processor)->updateParticles(particle_data, particle_size, particle_count, _tick);
         }
 
         // Clean dead particles.
@@ -87,19 +96,19 @@ void Particles::ParticleSystem::update(Float _tick)
     {
         create_acc -= create_amount;
         create_amount = min(create_amount, max_particles - particle_count);
+
+        // Zero the particles data.
+        memset(particle_data + particle_size * particle_count, 0, particle_size * create_amount);
+
+        // Init new particles.
         for (USize i = 0; i < create_amount; ++i)
         {
-            BaseParticleParams *current_particle = (BaseParticleParams*)(particle_data + particle_size * (particle_count + i));
-            current_particle->dead = false;
-            current_particle->position = Vector2(Math::random(-100.f, 100.0f), Math::random(-100.f, 100.0f));
-            current_particle->angle = 0.0f; //Math::random(Math::TWO_PI);
-            current_particle->scale = 1.0f; //Math::random(0.8, 1.2);
-            current_particle->color = Colors::White;
+            emitter->createParticle(particle_data + particle_size * (particle_count + i));
         }
 
-        for (ProcessorList::iterator proc = processors.begin(); proc != processors.end(); ++proc)
+        FOREACH (ProcessorList::iterator, processor, processors)
         {
-            (*proc)->initParticles(particle_data + particle_size * particle_count, particle_size, create_amount);
+            (*processor)->initParticles(particle_data + particle_size * particle_count, particle_size, create_amount);
         }
 
         particle_count += create_amount;

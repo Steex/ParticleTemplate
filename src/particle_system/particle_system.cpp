@@ -10,6 +10,7 @@
 #include "processor_aging.h"
 #include "processor_rotation.h"
 #include "processor_acceleration.h"
+#include "processor_scale_over_lifetime.h"
 
 
 
@@ -59,6 +60,10 @@ void Particles::ParticleSystem::load()
     ProcessorAcceleration *gravity = new ProcessorAcceleration(param_info);
     gravity->load();
     processors.push_back(gravity);
+
+    ProcessorScaleOverLifetime *scale = new ProcessorScaleOverLifetime(param_info);
+    scale->load();
+    processors.push_back(scale);
 
     // Allocate particles.
     max_particles = 100;

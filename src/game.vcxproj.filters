@@ -106,6 +106,9 @@
     <ClInclude Include="particle_system\fetcher.h">
       <Filter>particle_system</Filter>
     </ClInclude>
+    <ClInclude Include="particle_system\processor_scale_over_lifetime.h">
+      <Filter>particle_system</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="common\cheat_manager.cpp">
@@ -146,6 +149,9 @@
       <Filter>particle_system</Filter>
     </ClCompile>
     <ClCompile Include="particle_system\processor_aging.cpp">
+      <Filter>particle_system</Filter>
+    </ClCompile>
+    <ClCompile Include="particle_system\processor_scale_over_lifetime.cpp">
       <Filter>particle_system</Filter>
     </ClCompile>
   </ItemGroup>

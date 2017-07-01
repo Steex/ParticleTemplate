@@ -7,6 +7,7 @@
 #include "inspector.h"
 
 #include "emitter_rect.h"
+#include "processor_aging.h"
 #include "processor_rotation.h"
 #include "processor_acceleration.h"
 
@@ -47,6 +48,10 @@ void Particles::ParticleSystem::load()
     emitter->load();
 
     // Create processing blocks.
+    ProcessorAging *aging = new ProcessorAging(param_info);
+    aging->load();
+    processors.push_back(aging);
+
     ProcessorRotation *rotation = new ProcessorRotation(param_info);
     rotation->load();
     processors.push_back(rotation);

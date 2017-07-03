@@ -7,9 +7,10 @@
 
 
 #include "../particle_system/inspector.h"
+#include "../tmp_particle_system.h"
 
 
-class GeneratedParticleRenderer : public Particles::Inspector
+class GeneratedParticleRenderer : public GeneratedParticles::IRenderer
 {
 public:
 
@@ -21,7 +22,7 @@ public:
     void setParentTransform(const Matrix3& _transform);
     void setParentColor(const Color& _color);
     void drawParticles();
-    virtual void inspect(const Byte *_start, USize _stride, USize _count);
+    virtual void iterate(const Byte *_start, USize _stride, USize _count);
 
 private:
 

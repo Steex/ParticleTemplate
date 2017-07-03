@@ -86,11 +86,11 @@ void GeneratedParticleRenderer::setParentColor(const Color& _color)
 
 //-----------------------------------------------------------------------
 
-void GeneratedParticleRenderer::inspect(const Byte *_start, USize _stride, USize _count)
+void GeneratedParticleRenderer::iterate(const Byte *_start, USize _stride, USize _count)
 {
     for (USize i = 0; i < _count; ++i)
     {
-        const Particles::BaseParticleParams *params = (const Particles::BaseParticleParams*)(_start + _stride * i);
+        const GeneratedParticles::BaseParticleParams *params = (const GeneratedParticles::BaseParticleParams*)(_start + _stride * i);
         Particle& particle = m_particles[i];
 
         // Update particle transform.

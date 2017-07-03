@@ -115,6 +115,7 @@
     <ClInclude Include="particle_viewer\generated_particle_renderer.h">
       <Filter>particle_viewer</Filter>
     </ClInclude>
+    <ClInclude Include="tmp_particle_system.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="common\cheat_manager.cpp">
@@ -166,5 +167,6 @@
     <ClCompile Include="particle_viewer\generated_particle_renderer.cpp">
       <Filter>particle_viewer</Filter>
     </ClCompile>
+    <ClCompile Include="tmp_particle_system.cpp" />
   </ItemGroup>
 </Project>

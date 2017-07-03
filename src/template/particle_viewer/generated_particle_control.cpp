@@ -5,7 +5,7 @@
 #include "head.h"
 #include "generated_particle_control.h"
 #include "generated_particle_renderer.h"
-#include "../particle_system/particle_system.h"
+#include "../tmp_particle_system.h"
 
 //-----------------------------------------------------------------------
 
@@ -23,8 +23,7 @@ void GeneratedParticleControl::onCreate()
 {
     PARENT_CLASS::onCreate();
 
-    m_system = new Particles::ParticleSystem();
-    m_system->load();
+    m_system = new GeneratedParticles::TempSparkles();
 
     m_texture = iResourceManager::inst()->getTexture("particles/smoke.png");
 
@@ -56,7 +55,7 @@ void GeneratedParticleControl::prepareDraw()
 
     m_renderer->setParentTransform(getCombinedTransform());
     m_renderer->setParentColor(getCombinedColor());
-    m_system->inspect(m_renderer);
+    m_system->render(m_renderer);
 }
 
 //-----------------------------------------------------------------------

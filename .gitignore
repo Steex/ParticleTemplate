@@ -1,10 +1,14 @@
 /build
-/gen
+
 /*.exe
 /*.ilk
 /*.pdb
 /OpenAL32.dll
 /wrap_oal.dll
+
+/gen/*.exe
+/gen/*.ilk
+/gen/*.pdb
 
 /src/ipch
 /src/**/*.user

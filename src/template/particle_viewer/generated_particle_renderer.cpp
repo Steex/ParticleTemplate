@@ -1,14 +1,14 @@
 // Copyright (c) 2001-2017 Aliasworlds Entertainment
-// file particle_renderer.cpp
+// file generated_particle_renderer.cpp
 // author: Sergey Sotnikov
 
 #include "head.h"
-#include "particle_renderer.h"
+#include "generated_particle_renderer.h"
 #include "../particle_system/base_params.h"
 
 //-----------------------------------------------------------------------
 
-ParticleRenderer::ParticleRenderer()
+GeneratedParticleRenderer::GeneratedParticleRenderer()
 : m_texture          (NULL)
 , m_parent_transform (Matrix3::IDENTITY)
 , m_parent_color     (Colors::White)
@@ -21,13 +21,13 @@ ParticleRenderer::ParticleRenderer()
 
 //-----------------------------------------------------------------------
 
-ParticleRenderer::~ParticleRenderer()
+GeneratedParticleRenderer::~GeneratedParticleRenderer()
 {
 }
 
 //-----------------------------------------------------------------------
 
-void ParticleRenderer::init(USize _particle_count, iTexture *_texture)
+void GeneratedParticleRenderer::init(USize _particle_count, iTexture *_texture)
 {
     // Remember the texture.
     m_texture = _texture;
@@ -56,7 +56,7 @@ void ParticleRenderer::init(USize _particle_count, iTexture *_texture)
 
 //-----------------------------------------------------------------------
 
-void ParticleRenderer::setTexture(iTexture *_texture)
+void GeneratedParticleRenderer::setTexture(iTexture *_texture)
 {
     // Remember the texture.
     m_texture = _texture;
@@ -72,21 +72,21 @@ void ParticleRenderer::setTexture(iTexture *_texture)
 
 //-----------------------------------------------------------------------
 
-void ParticleRenderer::setParentTransform(const Matrix3& _transform)
+void GeneratedParticleRenderer::setParentTransform(const Matrix3& _transform)
 {
     m_parent_transform = _transform;
 }
 
 //-----------------------------------------------------------------------
 
-void ParticleRenderer::setParentColor(const Color& _color)
+void GeneratedParticleRenderer::setParentColor(const Color& _color)
 {
     m_parent_color = _color;
 }
 
 //-----------------------------------------------------------------------
 
-void ParticleRenderer::inspect(const Byte *_start, USize _stride, USize _count)
+void GeneratedParticleRenderer::inspect(const Byte *_start, USize _stride, USize _count)
 {
     for (USize i = 0; i < _count; ++i)
     {
@@ -106,7 +106,7 @@ void ParticleRenderer::inspect(const Byte *_start, USize _stride, USize _count)
 
 //-----------------------------------------------------------------------
 
-void ParticleRenderer::drawParticles()
+void GeneratedParticleRenderer::drawParticles()
 {
     iGraphics *graphics = iGraphics::inst();
 

@@ -79,12 +79,6 @@
     <ClInclude Include="particle_viewer\particle_viewer.h">
       <Filter>particle_viewer</Filter>
     </ClInclude>
-    <ClInclude Include="particle_viewer\particle_control.h">
-      <Filter>particle_viewer</Filter>
-    </ClInclude>
-    <ClInclude Include="particle_viewer\particle_renderer.h">
-      <Filter>particle_viewer</Filter>
-    </ClInclude>
     <ClInclude Include="particle_system\base_params.h">
       <Filter>particle_system</Filter>
     </ClInclude>
@@ -108,6 +102,18 @@
     </ClInclude>
     <ClInclude Include="particle_system\processor_scale_over_lifetime.h">
       <Filter>particle_system</Filter>
+    </ClInclude>
+    <ClInclude Include="particle_viewer\normal_particle_control.h">
+      <Filter>particle_viewer</Filter>
+    </ClInclude>
+    <ClInclude Include="particle_viewer\normal_particle_renderer.h">
+      <Filter>particle_viewer</Filter>
+    </ClInclude>
+    <ClInclude Include="particle_viewer\generated_particle_control.h">
+      <Filter>particle_viewer</Filter>
+    </ClInclude>
+    <ClInclude Include="particle_viewer\generated_particle_renderer.h">
+      <Filter>particle_viewer</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -139,12 +145,6 @@
     <ClCompile Include="particle_viewer\particle_viewer.cpp">
       <Filter>particle_viewer</Filter>
     </ClCompile>
-    <ClCompile Include="particle_viewer\particle_control.cpp">
-      <Filter>particle_viewer</Filter>
-    </ClCompile>
-    <ClCompile Include="particle_viewer\particle_renderer.cpp">
-      <Filter>particle_viewer</Filter>
-    </ClCompile>
     <ClCompile Include="particle_system\emitter_rect.cpp">
       <Filter>particle_system</Filter>
     </ClCompile>
@@ -153,6 +153,18 @@
     </ClCompile>
     <ClCompile Include="particle_system\processor_scale_over_lifetime.cpp">
       <Filter>particle_system</Filter>
+    </ClCompile>
+    <ClCompile Include="particle_viewer\normal_particle_control.cpp">
+      <Filter>particle_viewer</Filter>
+    </ClCompile>
+    <ClCompile Include="particle_viewer\normal_particle_renderer.cpp">
+      <Filter>particle_viewer</Filter>
+    </ClCompile>
+    <ClCompile Include="particle_viewer\generated_particle_control.cpp">
+      <Filter>particle_viewer</Filter>
+    </ClCompile>
+    <ClCompile Include="particle_viewer\generated_particle_renderer.cpp">
+      <Filter>particle_viewer</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

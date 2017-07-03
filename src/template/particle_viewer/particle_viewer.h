@@ -6,7 +6,7 @@
 #define _PARTICLE_VIEWER_INCLUDED__
 
 
-class ParticleControl;
+//class ParticleControl;
 
 
 class ParticleViewer : public cControl
@@ -33,8 +33,7 @@ private:
 
     void loadIni(iIni *_ini);
 
-    ParticleControl *m_particles;
-
+    //ParticleControl *m_particles;
 };
 
 

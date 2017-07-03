@@ -145,8 +145,10 @@
     <ClInclude Include="particle_system\processor_rotation.h" />
     <ClInclude Include="particle_system\inspector.h" />
     <ClInclude Include="particle_system\processor_scale_over_lifetime.h" />
-    <ClInclude Include="particle_viewer\particle_control.h" />
-    <ClInclude Include="particle_viewer\particle_renderer.h" />
+    <ClInclude Include="particle_viewer\normal_particle_control.h" />
+    <ClInclude Include="particle_viewer\generated_particle_control.h" />
+    <ClInclude Include="particle_viewer\generated_particle_renderer.h" />
+    <ClInclude Include="particle_viewer\normal_particle_renderer.h" />
     <ClInclude Include="particle_viewer\particle_viewer.h" />
     <ClInclude Include="resource_debug.h" />
     <ClInclude Include="version.h" />
@@ -188,8 +190,10 @@
     <ClCompile Include="particle_system\processor_aging.cpp" />
     <ClCompile Include="particle_system\processor_rotation.cpp" />
     <ClCompile Include="particle_system\processor_scale_over_lifetime.cpp" />
-    <ClCompile Include="particle_viewer\particle_control.cpp" />
-    <ClCompile Include="particle_viewer\particle_renderer.cpp" />
+    <ClCompile Include="particle_viewer\normal_particle_control.cpp" />
+    <ClCompile Include="particle_viewer\generated_particle_control.cpp" />
+    <ClCompile Include="particle_viewer\generated_particle_renderer.cpp" />
+    <ClCompile Include="particle_viewer\normal_particle_renderer.cpp" />
     <ClCompile Include="particle_viewer\particle_viewer.cpp" />
     <ClCompile Include="tag_manager.cpp" />
   </ItemGroup>

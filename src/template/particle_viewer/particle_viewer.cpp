@@ -5,13 +5,13 @@
 #include "head.h"
 
 #include "particle_viewer.h"
-#include "particle_control.h"
+//#include "particle_control.h"
 
 //-----------------------------------------------------------------------
 
 ParticleViewer::ParticleViewer(cControl *_parent)
 : PARENT_CLASS (_parent)
-, m_particles  (NULL)
+//, m_particles  (NULL)
 {
 }
 
@@ -45,7 +45,7 @@ void ParticleViewer::loadIni(iIni *_ini)
 
     UI::IniLoader ui(this, _ini);
 
-    m_particles = ui.get<ParticleControl>("PARTICLES");
+    //m_particles = ui.get<ParticleControl>("PARTICLES");
 }
 
 //-----------------------------------------------------------------------

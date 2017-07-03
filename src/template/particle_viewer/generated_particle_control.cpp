@@ -1,15 +1,15 @@
 // Copyright (c) 2001-2017 Aliasworlds Entertainment
-// file particle_control.cpp
+// file generated_particle_control.cpp
 // author: Sergey Sotnikov
 
 #include "head.h"
-#include "particle_control.h"
-#include "particle_renderer.h"
+#include "generated_particle_control.h"
+#include "generated_particle_renderer.h"
 #include "../particle_system/particle_system.h"
 
 //-----------------------------------------------------------------------
 
-ParticleControl::ParticleControl(cControl *_parent)
+GeneratedParticleControl::GeneratedParticleControl(cControl *_parent)
 : PARENT_CLASS (_parent)
 , m_system     (NULL)
 , m_renderer   (NULL)
@@ -19,7 +19,7 @@ ParticleControl::ParticleControl(cControl *_parent)
 
 //-----------------------------------------------------------------------
 
-void ParticleControl::onCreate()
+void GeneratedParticleControl::onCreate()
 {
     PARENT_CLASS::onCreate();
 
@@ -28,20 +28,20 @@ void ParticleControl::onCreate()
 
     m_texture = iResourceManager::inst()->getTexture("particles/smoke.png");
 
-    m_renderer = new ParticleRenderer();
+    m_renderer = new GeneratedParticleRenderer();
     m_renderer->init(m_system->getMaxCount(), m_texture);
 }
 
 //-----------------------------------------------------------------------
 
-void ParticleControl::onDestroy()
+void GeneratedParticleControl::onDestroy()
 {
     PARENT_CLASS::onDestroy();
 }
 
 //-----------------------------------------------------------------------
 
-void ParticleControl::process()
+void GeneratedParticleControl::process()
 {
     PARENT_CLASS::process();
 
@@ -50,7 +50,7 @@ void ParticleControl::process()
 
 //-----------------------------------------------------------------------
 
-void ParticleControl::prepareDraw()
+void GeneratedParticleControl::prepareDraw()
 {
     PARENT_CLASS::prepareDraw();
 
@@ -61,7 +61,7 @@ void ParticleControl::prepareDraw()
 
 //-----------------------------------------------------------------------
 
-void ParticleControl::draw()
+void GeneratedParticleControl::draw()
 {
     PARENT_CLASS::draw();
 

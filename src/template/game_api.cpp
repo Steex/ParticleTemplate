@@ -4,7 +4,8 @@
 
 #include "head.h"
 #include "common/general_loop.h"
-#include "particle_viewer/particle_control.h"
+#include "particle_viewer/normal_particle_control.h"
+#include "particle_viewer/generated_particle_control.h"
 
 const char* GameApi::pack_key = "VeryStrongPackKey";
 
@@ -14,7 +15,8 @@ void GameApi::initApp()
 {
     UI::init();
 
-    UI::IniLoader::registerStandardCreator<ParticleControl>("particle_system");
+    UI::IniLoader::registerStandardCreator<NormalParticleControl>("normal_particle_system");
+    UI::IniLoader::registerStandardCreator<GeneratedParticleControl>("generated_particle_system");
 
     UI::Create<GeneralLoop>();
     UI::cUIManager::setRoot(GeneralLoop::inst());

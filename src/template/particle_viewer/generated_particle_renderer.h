@@ -1,20 +1,20 @@
 // Copyright (c) 2001-2017 Aliasworlds Entertainment
-// file particle_renderer.h
+// file generated_particle_renderer.h
 // author: Sergey Sotnikov
 
-#ifndef _PARTICLE_RENDERER_INCLUDED__
-#define _PARTICLE_RENDERER_INCLUDED__
+#ifndef _GENERATED_PARTICLE_RENDERER_INCLUDED__
+#define _GENERATED_PARTICLE_RENDERER_INCLUDED__
 
 
 #include "../particle_system/inspector.h"
 
 
-class ParticleRenderer : public Particles::Inspector
+class GeneratedParticleRenderer : public Particles::Inspector
 {
 public:
 
-    ParticleRenderer();
-    virtual ~ParticleRenderer();
+    GeneratedParticleRenderer();
+    virtual ~GeneratedParticleRenderer();
 
     void init(USize _particle_count, iTexture *_texture);
     void setTexture(iTexture *_texture);
@@ -43,4 +43,4 @@ private:
 };
 
 
-#endif // _PARTICLE_RENDERER_INCLUDED__
+#endif // _GENERATED_PARTICLE_RENDERER_INCLUDED__

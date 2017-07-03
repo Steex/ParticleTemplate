@@ -48,11 +48,7 @@ void Particles::ProcessorAging::updateParticles(Byte *_start, USize _stride, USi
     {
         current_particle = _start + _stride * i;
 
-        Bool deadv1 = *dead;
-
         *age += _tick;
         *dead = *dead || *age >= *lifetime;
-        Bool deadv2 = *dead;
-        int n = 0;
     }
 }

@@ -1,4 +1,5 @@
 /build
+/gen
 /*.exe
 /*.ilk
 /*.pdb

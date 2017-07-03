@@ -6,8 +6,8 @@
 /wrap_oal.dll
 
 /src/ipch
-/src/*.user
-/src/*.suo
-/src/*.ncb
-/src/*.sdf
-/src/*.opensdf
+/src/**/*.user
+/src/**/*.suo
+/src/**/*.ncb
+/src/**/*.sdf
+/src/**/*.opensdf

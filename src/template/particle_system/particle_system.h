@@ -16,10 +16,9 @@ namespace Particles
     {
     public:
 
-        ParticleSystem();
+        ParticleSystem(iXml *_xml);
         ~ParticleSystem();
 
-        void load();
         void update(Float _tick);
         void inspect(Inspector *_inspector) const;
 

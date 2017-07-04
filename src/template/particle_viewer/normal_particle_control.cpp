@@ -23,13 +23,7 @@ void NormalParticleControl::onCreate()
 {
     PARENT_CLASS::onCreate();
 
-    m_system = new Particles::ParticleSystem();
-    m_system->load();
-
-    m_texture = iResourceManager::inst()->getTexture("particles/smoke.png");
-
     m_renderer = new NormalParticleRenderer();
-    m_renderer->init(m_system->getMaxCount(), m_texture);
 }
 
 //-----------------------------------------------------------------------
@@ -37,6 +31,35 @@ void NormalParticleControl::onCreate()
 void NormalParticleControl::onDestroy()
 {
     PARENT_CLASS::onDestroy();
+}
+
+//-----------------------------------------------------------------------
+
+void NormalParticleControl::loadIni(iIni *_ini, const String& _section)
+{
+    PARENT_CLASS::loadIni(_ini, _section);
+
+    // Set the texture.
+    String texture_name = _ini->get(_section, "picture");
+    if (!texture_name.empty())
+    {
+        m_texture = iResourceManager::inst()->getTexture(texture_name);
+    }
+
+    // Destroy the existing system.
+    delete m_system;
+    m_system = NULL;
+
+    // Create a new system.
+    String system_data_file = _ini->get(_section, "system");
+    if (!system_data_file.empty())
+    {
+        iXml *data_xml = iResourceManager::inst()->getXml(system_data_file);
+        m_system = new Particles::ParticleSystem(data_xml);
+    }
+
+    // Reinitialize the renderer.
+    m_renderer->init(m_system ? m_system->getMaxCount() : 0, m_texture);
 }
 
 //-----------------------------------------------------------------------

@@ -15,7 +15,7 @@
 
 
 
-Particles::ParticleSystem::ParticleSystem()
+Particles::ParticleSystem::ParticleSystem(iXml *_xml)
     : param_info     ()
     , processors     ()
     , max_particles  (0)
@@ -24,19 +24,6 @@ Particles::ParticleSystem::ParticleSystem()
     , particle_data  (nullptr)
     , create_acc     (0.0f)
 {
-}
-
-
-
-Particles::ParticleSystem::~ParticleSystem()
-{
-    delete[] particle_data;
-}
-
-
-
-void Particles::ParticleSystem::load()
-{
     // Prepare standard data.
     param_info.registerParam<Bool>("dead");
     param_info.registerParam<Vector2>("position");
@@ -44,29 +31,36 @@ void Particles::ParticleSystem::load()
     param_info.registerParam<Float>("angle");
     param_info.registerParam<Color>("color");
 
-
     // Create an emitter.
     emitter = new EmitterRect(param_info);
     emitter->load();
 
     // Create processing blocks.
-    std::vector<String> processor_names;
-    processor_names.push_back("aging");
-    processor_names.push_back("rotation");
-    processor_names.push_back("acceleration");
-    processor_names.push_back("scale_over_lifetime");
-
-    FOREACH (std::vector<String>::const_iterator, processor_name, processor_names)
+    if (iXml *processor_list_node = _xml->getChild("processors"))
     {
-        Processor *processor = ProcessorFactory::create(*processor_name, param_info);
-        processor->load();
-        processors.push_back(processor);
+        iXml::TAG_LIST processor_nodes;
+        processor_list_node->getChildren("processor", processor_nodes);
+
+        FOREACH (iXml::TAG_LIST::const_iterator, processor_node, processor_nodes)
+        {
+            String processor_type = (*processor_node)->getAttribute("type");
+            Processor *processor = ProcessorFactory::create(processor_type, param_info);
+            processor->load();
+            processors.push_back(processor);
+        }
     }
 
     // Allocate particles.
-    max_particles = 100;
+    max_particles << _xml->getAttribute("max_particles");
     particle_size = param_info.getTotalSize();
     particle_data = new Byte[particle_size * max_particles];
+}
+
+
+
+Particles::ParticleSystem::~ParticleSystem()
+{
+    delete[] particle_data;
 }
 
 

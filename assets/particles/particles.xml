@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<particle_system format="0.1" max_particles="100">
+  <emitter></emitter>
+  <processors>
+    <processor name="aging" type="aging" />
+    <processor name="gravity" type="acceleration" />
+    <processor name="rotation" type="rotation" />
+    <processor name="scale" type="scale_over_lifetime" />
+  </processors>
+</particle_system>

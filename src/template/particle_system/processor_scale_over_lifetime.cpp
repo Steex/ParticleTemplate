@@ -2,6 +2,11 @@
 
 #include "processor_scale_over_lifetime.h"
 #include "param_info_holder.h"
+#include "processor_factory.h"
+
+
+
+static const Particles::ProcessorRegistrator<Particles::ProcessorScaleOverLifetime> registrator("scale_over_lifetime");
 
 
 

@@ -2,6 +2,11 @@
 
 #include "processor_aging.h"
 #include "param_info_holder.h"
+#include "processor_factory.h"
+
+
+
+static const Particles::ProcessorRegistrator<Particles::ProcessorAging> registrator("aging");
 
 
 

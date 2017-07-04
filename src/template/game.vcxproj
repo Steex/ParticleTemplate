@@ -142,6 +142,7 @@
     <ClInclude Include="particle_system\processor.h" />
     <ClInclude Include="particle_system\processor_acceleration.h" />
     <ClInclude Include="particle_system\processor_aging.h" />
+    <ClInclude Include="particle_system\processor_factory.h" />
     <ClInclude Include="particle_system\processor_rotation.h" />
     <ClInclude Include="particle_system\inspector.h" />
     <ClInclude Include="particle_system\processor_scale_over_lifetime.h" />
@@ -189,6 +190,7 @@
     <ClCompile Include="particle_system\particle_system.cpp" />
     <ClCompile Include="particle_system\processor_acceleration.cpp" />
     <ClCompile Include="particle_system\processor_aging.cpp" />
+    <ClCompile Include="particle_system\processor_factory.cpp" />
     <ClCompile Include="particle_system\processor_rotation.cpp" />
     <ClCompile Include="particle_system\processor_scale_over_lifetime.cpp" />
     <ClCompile Include="particle_viewer\normal_particle_control.cpp" />

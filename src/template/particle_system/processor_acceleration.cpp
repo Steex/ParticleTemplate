@@ -2,6 +2,11 @@
 
 #include "processor_acceleration.h"
 #include "param_info_holder.h"
+#include "processor_factory.h"
+
+
+
+static const Particles::ProcessorRegistrator<Particles::ProcessorAcceleration> registrator("acceleration");
 
 
 
@@ -11,7 +16,6 @@ Particles::ProcessorAcceleration::ProcessorAcceleration(ParamInfoHolder& _param_
     , velocity         (current_particle, _param_info.registerParam<Vector2>("velocity"))
     , accel            (0.0f, 100.0f)
 {
-
 }
 
 

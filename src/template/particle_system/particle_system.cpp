@@ -4,6 +4,7 @@
 #include "base_params.h"
 #include "emitter.h"
 #include "processor.h"
+#include "processor_factory.h"
 #include "inspector.h"
 
 #include "emitter_rect.h"
@@ -49,21 +50,18 @@ void Particles::ParticleSystem::load()
     emitter->load();
 
     // Create processing blocks.
-    ProcessorAging *aging = new ProcessorAging(param_info);
-    aging->load();
-    processors.push_back(aging);
+    std::vector<String> processor_names;
+    processor_names.push_back("aging");
+    processor_names.push_back("rotation");
+    processor_names.push_back("acceleration");
+    processor_names.push_back("scale_over_lifetime");
 
-    ProcessorRotation *rotation = new ProcessorRotation(param_info);
-    rotation->load();
-    processors.push_back(rotation);
-
-    ProcessorAcceleration *gravity = new ProcessorAcceleration(param_info);
-    gravity->load();
-    processors.push_back(gravity);
-
-    ProcessorScaleOverLifetime *scale = new ProcessorScaleOverLifetime(param_info);
-    scale->load();
-    processors.push_back(scale);
+    FOREACH (std::vector<String>::const_iterator, processor_name, processor_names)
+    {
+        Processor *processor = ProcessorFactory::create(*processor_name, param_info);
+        processor->load();
+        processors.push_back(processor);
+    }
 
     // Allocate particles.
     max_particles = 100;

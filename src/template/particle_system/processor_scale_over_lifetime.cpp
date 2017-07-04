@@ -44,7 +44,7 @@ void Particles::ProcessorScaleOverLifetime::initParticles(Byte *_start, USize _s
     {
         current_particle = _start + _stride * i;
 
-        *scale = scale_fetcher->fetch(0.0f, 0.0f);
+        *scale = scale_fetcher->fetch(0.0f);
     }
 }
 
@@ -56,6 +56,6 @@ void Particles::ProcessorScaleOverLifetime::updateParticles(Byte *_start, USize 
     {
         current_particle = _start + _stride * i;
 
-        *scale = scale_fetcher->fetch(*age / *lifetime, 0.0f);
+        *scale = scale_fetcher->fetch(*age / *lifetime);
     }
 }

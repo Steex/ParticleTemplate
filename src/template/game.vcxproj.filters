@@ -119,6 +119,9 @@
     <ClInclude Include="particle_system\processor_factory.h">
       <Filter>particle_system</Filter>
     </ClInclude>
+    <ClInclude Include="particle_system\fetcher_factory.h">
+      <Filter>particle_system</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="common\cheat_manager.cpp">
@@ -172,6 +175,9 @@
     </ClCompile>
     <ClCompile Include="tmp_particle_system.cpp" />
     <ClCompile Include="particle_system\processor_factory.cpp">
+      <Filter>particle_system</Filter>
+    </ClCompile>
+    <ClCompile Include="particle_system\fetcher_factory.cpp">
       <Filter>particle_system</Filter>
     </ClCompile>
   </ItemGroup>

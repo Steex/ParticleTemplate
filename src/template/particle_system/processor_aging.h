@@ -23,12 +23,12 @@ namespace Particles
 
     private:
 
-        Range<Float> lifetime_range;
-
         Byte *current_particle;
         ParamAccessor<Float> age;
         ParamAccessor<Float> lifetime;
         ParamAccessor<Bool>  dead;
+
+        Range<Float> lifetime_range;
     };
 }
 

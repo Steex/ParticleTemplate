@@ -23,11 +23,11 @@ namespace Particles
 
     private:
 
-        Vector2 accel;
-
         Byte *current_particle;
         ParamAccessor<Vector2> position;
         ParamAccessor<Vector2> velocity;
+
+        Vector2 accel;
     };
 }
 

@@ -136,6 +136,7 @@
     <ClInclude Include="particle_system\emitter.h" />
     <ClInclude Include="particle_system\emitter_rect.h" />
     <ClInclude Include="particle_system\fetcher.h" />
+    <ClInclude Include="particle_system\fetcher_factory.h" />
     <ClInclude Include="particle_system\param_accessor.h" />
     <ClInclude Include="particle_system\param_info_holder.h" />
     <ClInclude Include="particle_system\particle_system.h" />
@@ -186,6 +187,7 @@
       </PrecompiledHeader>
     </ClCompile>
     <ClCompile Include="particle_system\emitter_rect.cpp" />
+    <ClCompile Include="particle_system\fetcher_factory.cpp" />
     <ClCompile Include="particle_system\param_info_holder.cpp" />
     <ClCompile Include="particle_system\particle_system.cpp" />
     <ClCompile Include="particle_system\processor_acceleration.cpp" />

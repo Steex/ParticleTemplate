@@ -12,7 +12,6 @@ const static String errorProcessorTypeNotFound = "The processor name \"%1%\" is 
 Particles::ProcessorFactory::ProcessorFactory()
     : creators ()
 {
-
 }
 
 

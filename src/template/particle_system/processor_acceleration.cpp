@@ -12,10 +12,10 @@ static const Particles::ProcessorRegistrator<Particles::ProcessorAcceleration> r
 
 Particles::ProcessorAcceleration::ProcessorAcceleration(iXml *_xml, ParamInfoHolder& _param_info)
     : Processor        (_xml)
-    , accel            (0.0f, 0.0f)
     , current_particle (nullptr)
     , position         (current_particle, _param_info.registerParam<Vector2>("position"))
     , velocity         (current_particle, _param_info.registerParam<Vector2>("velocity"))
+    , accel            (0.0f, 0.0f)
 {
     accel << _xml->getAttribute("acceleration");
 }

@@ -28,6 +28,7 @@ namespace Particles
         ParamAccessor<Float> age;
         ParamAccessor<Float> lifetime;
         ParamAccessor<Float> scale;
+
         Fetcher<Float> *scale_fetcher;
     };
 }

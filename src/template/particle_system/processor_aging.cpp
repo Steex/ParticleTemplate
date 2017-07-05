@@ -12,11 +12,11 @@ static const Particles::ProcessorRegistrator<Particles::ProcessorAging> registra
 
 Particles::ProcessorAging::ProcessorAging(iXml *_xml, ParamInfoHolder& _param_info)
     : Processor        (_xml)
-    , lifetime_range   (1.0f, 1.0f)
     , current_particle (nullptr)
     , age              (current_particle, _param_info.registerParam<Float>("age"))
     , lifetime         (current_particle, _param_info.registerParam<Float>("lifetime"))
     , dead             (current_particle, _param_info.registerParam<Bool>("dead"))
+    , lifetime_range   (1.0f, 1.0f)
 {
     lifetime_range << _xml->getAttribute("lifetime");
 }

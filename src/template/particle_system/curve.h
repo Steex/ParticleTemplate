@@ -19,6 +19,7 @@ namespace Particles
 
         Curve(std::vector<T> _data, USize _table_size = 64);
         Curve(const Range<T>& _value_range, iCurve *_smooth_curve, USize _table_size = 64);
+        Curve(iXml *_xml);
         T operator()(Float _arg);
 
     private:
@@ -50,12 +51,37 @@ namespace Particles
             max_arg = 1.0f;
         }
 
-        for (USize i = 0; i < _table_size; ++i)
+        for (USize i = 0; i < table_size; ++i)
         {
             Float lerp_coeff = _smooth_curve->getValue(((Float)i / (table_size - 1)) * max_arg) / 100.0f;
             fetch_table[i] = Math::lerpStrict(_value_range, lerp_coeff);
         }
     }
+
+
+    template<typename T>
+    Particles::Curve<T>::Curve(iXml *_xml)
+        : table_size  (parse<USize>(_xml->getAttribute("table_size"), 64))
+        , fetch_table (table_size)
+    {
+        Range<T> _value_range = parse<Range<T> >(_xml->getAttribute("value_range"));
+        String smooth_curve_file = _xml->getAttribute("curve_file");
+        String smooth_curve_name = _xml->getAttribute("curve_name");
+        iCurve *_smooth_curve = iResourceManager::inst()->getCurve(smooth_curve_file, smooth_curve_name);
+
+        Float max_arg = _smooth_curve->getMaxArgument();
+        if (max_arg == 0)
+        {
+            max_arg = 1.0f;
+        }
+
+        for (USize i = 0; i < table_size; ++i)
+        {
+            Float lerp_coeff = _smooth_curve->getValue(((Float)i / (table_size - 1)) * max_arg) / 100.0f;
+            fetch_table[i] = Math::lerpStrict(_value_range, lerp_coeff);
+        }
+    }
+
 
     template<typename T>
     T Particles::Curve<T>::operator()(Float _arg)

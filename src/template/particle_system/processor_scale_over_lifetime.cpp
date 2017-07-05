@@ -3,6 +3,7 @@
 #include "processor_scale_over_lifetime.h"
 #include "param_info_holder.h"
 #include "processor_factory.h"
+#include "fetcher_factory.h"
 
 
 
@@ -16,12 +17,8 @@ Particles::ProcessorScaleOverLifetime::ProcessorScaleOverLifetime(iXml *_xml, Pa
     , age              (current_particle, _param_info.registerParam<Float>("age"))
     , lifetime         (current_particle, _param_info.registerParam<Float>("lifetime"))
     , scale            (current_particle, _param_info.registerParam<Float>("scale"))
-    , scale_fetcher    (NULL)
+    , scale_fetcher    (FetcherFactory::create<Float>(_xml->getChild("fetcher_scale")))
 {
-    //scale_fetcher = new FetcherTransition<Float>(0.5f, 1.5f);
-
-    iCurve *rb_curve = iResourceManager::inst()->getCurve("particles/test.curve", "scale");
-    scale_fetcher = new FetcherCurve<Float>(Curve<Float>(Range<Float>(0.0f, 1.0f), rb_curve));
 }
 
 

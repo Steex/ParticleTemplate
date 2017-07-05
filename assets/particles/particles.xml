@@ -5,6 +5,8 @@
     <processor name="aging" type="aging" lifetime="1,2"/>
     <processor name="gravity" type="acceleration" acceleration="0,100"/>
     <processor name="rotation" type="rotation" rotation_speed="-180,180"/>
-    <processor name="scale" type="scale_over_lifetime" />
+    <processor name="scale" type="scale_over_lifetime">
+      <fetcher_scale type="curve" value_range="0,1" curve_file="particles/test.curve" curve_name="scale" />
+    </processor>
   </processors>
 </particle_system>

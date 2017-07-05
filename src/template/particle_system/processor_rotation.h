@@ -23,11 +23,11 @@ namespace Particles
 
     private:
 
-        Range<Float> speed_range;
-
         Byte *current_particle;
         ParamAccessor<Float> angle;
         ParamAccessor<Float> rot_speed;
+
+        Range<Float> speed_range;
     };
 }
 

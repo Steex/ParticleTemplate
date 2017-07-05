@@ -28,6 +28,7 @@ namespace Particles
     public:
 
         FetcherConst(const T& _value): value(_value) {}
+        FetcherConst(iXml *_xml): value(parse<T>(_xml->getAttribute("value"))) {}
         virtual ~FetcherConst() {}
 
         virtual T fetch(Float _arg) { return value; }
@@ -45,6 +46,7 @@ namespace Particles
 
         FetcherLerp(const Range<T>& _range): value_range(_range) {}
         FetcherLerp(const T& _min, const T& _max): value_range(_min, _max) {}
+        FetcherLerp(iXml *_xml): value_range(parse<Range<T> >(_xml->getAttribute("value_range"))) {}
         virtual ~FetcherLerp() {}
 
         virtual T fetch(Float _arg) { return Math::lerpStrict(value_range, _arg); }
@@ -61,6 +63,7 @@ namespace Particles
     public:
 
         FetcherCurve(const Curve<T>& _curve): curve(_curve) {}
+        FetcherCurve(iXml *_xml): curve(_xml) {}
         virtual ~FetcherCurve() {}
 
         virtual T fetch(Float _arg) { return curve(_arg); }

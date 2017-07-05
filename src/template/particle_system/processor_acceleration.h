@@ -15,20 +15,19 @@ namespace Particles
     {
     public:
 
-        ProcessorAcceleration(ParamInfoHolder& _param_info);
+        ProcessorAcceleration(iXml *_xml, ParamInfoHolder& _param_info);
         virtual ~ProcessorAcceleration();
 
-        virtual void load();
         virtual void initParticles(Byte *_start, USize _stride, USize _count);
         virtual void updateParticles(Byte *_start, USize _stride, USize _count, Float _tick);
 
     private:
 
+        Vector2 accel;
+
         Byte *current_particle;
         ParamAccessor<Vector2> position;
         ParamAccessor<Vector2> velocity;
-
-        Vector2 accel;
     };
 }
 

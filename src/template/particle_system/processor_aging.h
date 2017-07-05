@@ -15,14 +15,15 @@ namespace Particles
     {
     public:
 
-        ProcessorAging(ParamInfoHolder& _param_info);
+        ProcessorAging(iXml *_xml, ParamInfoHolder& _param_info);
         virtual ~ProcessorAging();
 
-        virtual void load();
         virtual void initParticles(Byte *_start, USize _stride, USize _count);
         virtual void updateParticles(Byte *_start, USize _stride, USize _count, Float _tick);
 
     private:
+
+        Range<Float> lifetime_range;
 
         Byte *current_particle;
         ParamAccessor<Float> age;

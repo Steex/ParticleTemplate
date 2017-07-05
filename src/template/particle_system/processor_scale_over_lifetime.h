@@ -16,10 +16,9 @@ namespace Particles
     {
     public:
 
-        ProcessorScaleOverLifetime(ParamInfoHolder& _param_info);
+        ProcessorScaleOverLifetime(iXml *_xml, ParamInfoHolder& _param_info);
         virtual ~ProcessorScaleOverLifetime();
 
-        virtual void load();
         virtual void initParticles(Byte *_start, USize _stride, USize _count);
         virtual void updateParticles(Byte *_start, USize _stride, USize _count, Float _tick);
 

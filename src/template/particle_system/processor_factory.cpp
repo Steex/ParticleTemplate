@@ -4,8 +4,8 @@
 
 
 
-const static String errorProcessorNameExists = "The processor name \"%1%\" already exists.";
-const static String errorProcessorNameNotFound = "The processor name \"%1%\" is not found.";
+const static String errorProcessorTypeExists = "The processor name \"%1%\" already exists.";
+const static String errorProcessorTypeNotFound = "The processor name \"%1%\" is not found.";
 
 
 
@@ -26,24 +26,24 @@ Particles::ProcessorFactory* Particles::ProcessorFactory::inst()
 
 
 
-void Particles::ProcessorFactory::registerCreator(const String& _name, ProcessorCreator _creator)
+void Particles::ProcessorFactory::registerCreator(const String& _type, ProcessorCreator _creator)
 {
-    if (!inst()->creators.insert(make_pair(_name, _creator)).second)
+    if (!inst()->creators.insert(make_pair(_type, _creator)).second)
     {
-        throw Debug::Exception(String::format(errorProcessorNameExists, _name));
+        throw Debug::Exception(String::format(errorProcessorTypeExists, _type));
     }
 }
 
 
 
-Particles::Processor* Particles::ProcessorFactory::create(const String& _name, ParamInfoHolder& _params)
+Particles::Processor* Particles::ProcessorFactory::create(const String& _type, iXml *_xml, ParamInfoHolder& _param_info)
 {
-    CreatorCollection::const_iterator it_creator = inst()->creators.find(_name);
+    CreatorCollection::const_iterator it_creator = inst()->creators.find(_type);
 
     if (it_creator == inst()->creators.end())
     {
-        throw Debug::Exception(String::format(errorProcessorNameNotFound, _name));
+        throw Debug::Exception(String::format(errorProcessorTypeNotFound, _type));
     }
 
-    return it_creator->second(_params);
+    return it_creator->second(_xml, _param_info);
 }

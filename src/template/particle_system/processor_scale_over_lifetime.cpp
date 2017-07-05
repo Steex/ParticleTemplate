@@ -10,30 +10,23 @@ static const Particles::ProcessorRegistrator<Particles::ProcessorScaleOverLifeti
 
 
 
-Particles::ProcessorScaleOverLifetime::ProcessorScaleOverLifetime(ParamInfoHolder& _param_info)
+Particles::ProcessorScaleOverLifetime::ProcessorScaleOverLifetime(iXml *_xml, ParamInfoHolder& _param_info)
     : current_particle (nullptr)
     , age              (current_particle, _param_info.registerParam<Float>("age"))
     , lifetime         (current_particle, _param_info.registerParam<Float>("lifetime"))
     , scale            (current_particle, _param_info.registerParam<Float>("scale"))
     , scale_fetcher    (NULL)
 {
+    //scale_fetcher = new FetcherTransition<Float>(0.5f, 1.5f);
 
+    iCurve *rb_curve = iResourceManager::inst()->getCurve("particles/test.curve", "scale");
+    scale_fetcher = new FetcherCurve<Float>(Curve<Float>(Range<Float>(0.0f, 1.0f), rb_curve));
 }
 
 
 
 Particles::ProcessorScaleOverLifetime::~ProcessorScaleOverLifetime()
 {
-}
-
-
-
-void Particles::ProcessorScaleOverLifetime::load()
-{
-    //scale_fetcher = new FetcherTransition<Float>(0.5f, 1.5f);
-
-    iCurve *rb_curve = iResourceManager::inst()->getCurve("particles/test.curve", "scale");
-    scale_fetcher = new FetcherCurve<Float>(Curve<Float>(Range<Float>(0.0f, 1.0f), rb_curve));
 }
 
 

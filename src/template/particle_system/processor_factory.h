@@ -12,10 +12,10 @@ namespace Particles
     {
     public:
 
-        typedef Processor* (*ProcessorCreator)(ParamInfoHolder&);
+        typedef Processor* (*ProcessorCreator)(iXml*, ParamInfoHolder&);
 
-        static void registerCreator(const String& _name, ProcessorCreator _creator);
-        static Processor* create(const String& _name, ParamInfoHolder& _params);
+        static void registerCreator(const String& _type, ProcessorCreator _creator);
+        static Processor* create(const String& _type, iXml *_xml, ParamInfoHolder& _param_info);
 
     private:
 
@@ -32,15 +32,15 @@ namespace Particles
     class ProcessorRegistrator
     {
     public:
-        ProcessorRegistrator(const String& _name)
+        ProcessorRegistrator(const String& _type)
         {
-            ProcessorFactory::registerCreator(_name, &ProcessorRegistrator<P>::createProcessor);
+            ProcessorFactory::registerCreator(_type, &ProcessorRegistrator<P>::createProcessor);
         }
 
     private:
-        static Processor* createProcessor(ParamInfoHolder& _params)
+        static Processor* createProcessor(iXml *_xml, ParamInfoHolder& _param_info)
         {
-            return new P(_params);
+            return new P(_xml, _param_info);
         }
     };
 }

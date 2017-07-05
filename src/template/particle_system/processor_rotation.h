@@ -15,14 +15,15 @@ namespace Particles
     {
     public:
 
-        ProcessorRotation(ParamInfoHolder& _param_info);
+        ProcessorRotation(iXml *_xml, ParamInfoHolder& _param_info);
         virtual ~ProcessorRotation();
 
-        virtual void load();
         virtual void initParticles(Byte *_start, USize _stride, USize _count);
         virtual void updateParticles(Byte *_start, USize _stride, USize _count, Float _tick);
 
     private:
+
+        Range<Float> speed_range;
 
         Byte *current_particle;
         ParamAccessor<Float> angle;

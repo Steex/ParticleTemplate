@@ -44,8 +44,7 @@ Particles::ParticleSystem::ParticleSystem(iXml *_xml)
         FOREACH (iXml::TAG_LIST::const_iterator, processor_node, processor_nodes)
         {
             String processor_type = (*processor_node)->getAttribute("type");
-            Processor *processor = ProcessorFactory::create(processor_type, param_info);
-            processor->load();
+            Processor *processor = ProcessorFactory::create(processor_type, *processor_node, param_info);
             processors.push_back(processor);
         }
     }

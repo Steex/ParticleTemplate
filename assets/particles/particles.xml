@@ -2,9 +2,9 @@
 <particle_system format="0.1" max_particles="100">
   <emitter></emitter>
   <processors>
-    <processor name="aging" type="aging" />
-    <processor name="gravity" type="acceleration" />
-    <processor name="rotation" type="rotation" />
+    <processor name="aging" type="aging" lifetime="1,2"/>
+    <processor name="gravity" type="acceleration" acceleration="0,100"/>
+    <processor name="rotation" type="rotation" rotation_speed="-180,180"/>
     <processor name="scale" type="scale_over_lifetime" />
   </processors>
 </particle_system>

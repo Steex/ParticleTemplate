@@ -15,7 +15,11 @@ namespace Particles
 
     protected:
 
-        Processor() {}
+        Processor(iXml *_xml): name(_xml->getAttribute("name")) {}
+
+    private:
+        
+        String name;
     };
 }
 

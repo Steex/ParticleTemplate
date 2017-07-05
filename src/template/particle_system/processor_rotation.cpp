@@ -11,7 +11,8 @@ static const Particles::ProcessorRegistrator<Particles::ProcessorRotation> regis
 
 
 Particles::ProcessorRotation::ProcessorRotation(iXml *_xml, ParamInfoHolder& _param_info)
-    : speed_range      (0.0f, 0.0f)
+    : Processor        (_xml)
+    , speed_range      (0.0f, 0.0f)
     , current_particle (nullptr)
     , angle            (current_particle, _param_info.registerParam<Float>("angle"))
     , rot_speed        (current_particle, _param_info.registerParam<Float>("rot_speed"))

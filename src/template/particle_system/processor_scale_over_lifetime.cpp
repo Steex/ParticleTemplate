@@ -11,7 +11,8 @@ static const Particles::ProcessorRegistrator<Particles::ProcessorScaleOverLifeti
 
 
 Particles::ProcessorScaleOverLifetime::ProcessorScaleOverLifetime(iXml *_xml, ParamInfoHolder& _param_info)
-    : current_particle (nullptr)
+    : Processor        (_xml)
+    , current_particle (nullptr)
     , age              (current_particle, _param_info.registerParam<Float>("age"))
     , lifetime         (current_particle, _param_info.registerParam<Float>("lifetime"))
     , scale            (current_particle, _param_info.registerParam<Float>("scale"))

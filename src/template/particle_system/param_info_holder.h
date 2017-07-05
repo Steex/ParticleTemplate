@@ -13,8 +13,13 @@ namespace Particles
 
         template<typename P>
         inline USize registerParam(const String& _name) { return registerParam(_name, sizeof(P), typeid(P)); }
+        USize createParamCopy(const String& _orig_name, const String& _copy_name);
         USize getParamOffset(const String& _name) const;
+        USize getParamSize(const String& _name) const;
         USize getTotalSize() const { return total_size; }
+
+        void enableParamRestoring(const String& _name);
+        std::vector<String> getStoredValues() const;
 
     private:
         
@@ -23,6 +28,7 @@ namespace Particles
             String           name;
             USize            offset;
             USize            size;
+            Bool             restore_every_tick;
             const type_info *info;
         };
 

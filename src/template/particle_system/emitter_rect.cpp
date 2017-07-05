@@ -31,7 +31,7 @@ void Particles::EmitterRect::createParticle(Byte *_data)
     EmitParams emit_params = createEmitParams();
 
     *position = createEmitParams().position;
-    *scale = Math::random(0.8f, 1.2f);
+    *scale = Math::random(0.5f, 2.0f);
     *angle = Math::random(Math::TWO_PI);
     *color = Color(Math::random(), Math::random(), Math::random());
 }

@@ -122,6 +122,9 @@
     <ClInclude Include="particle_system\fetcher_factory.h">
       <Filter>particle_system</Filter>
     </ClInclude>
+    <ClInclude Include="particle_system\original_values_restorer.h">
+      <Filter>particle_system</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="common\cheat_manager.cpp">
@@ -178,6 +181,9 @@
       <Filter>particle_system</Filter>
     </ClCompile>
     <ClCompile Include="particle_system\fetcher_factory.cpp">
+      <Filter>particle_system</Filter>
+    </ClCompile>
+    <ClCompile Include="particle_system\original_values_restorer.cpp">
       <Filter>particle_system</Filter>
     </ClCompile>
   </ItemGroup>

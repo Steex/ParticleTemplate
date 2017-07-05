@@ -16,6 +16,7 @@ namespace Particles
     protected:
 
         Processor(iXml *_xml): name(_xml->getAttribute("name")) {}
+        Processor(const String& _name): name(_name) {}
 
     private:
         

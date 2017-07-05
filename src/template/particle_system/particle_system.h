@@ -9,6 +9,7 @@ namespace Particles
 {
     class Emitter;
     class Processor;
+    class OriginalValuesRestorer;
     class Inspector;
 
 
@@ -32,6 +33,7 @@ namespace Particles
         ParamInfoHolder param_info;
         Emitter *emitter;
         ProcessorList processors;
+        OriginalValuesRestorer *values_restorer;
         USize max_particles;
         USize particle_count;
         USize particle_size;

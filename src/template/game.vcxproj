@@ -147,6 +147,7 @@
     <ClInclude Include="particle_system\processor_rotation.h" />
     <ClInclude Include="particle_system\inspector.h" />
     <ClInclude Include="particle_system\processor_scale_over_lifetime.h" />
+    <ClInclude Include="particle_system\original_values_restorer.h" />
     <ClInclude Include="particle_viewer\normal_particle_control.h" />
     <ClInclude Include="particle_viewer\generated_particle_control.h" />
     <ClInclude Include="particle_viewer\generated_particle_renderer.h" />
@@ -195,6 +196,7 @@
     <ClCompile Include="particle_system\processor_factory.cpp" />
     <ClCompile Include="particle_system\processor_rotation.cpp" />
     <ClCompile Include="particle_system\processor_scale_over_lifetime.cpp" />
+    <ClCompile Include="particle_system\original_values_restorer.cpp" />
     <ClCompile Include="particle_viewer\normal_particle_control.cpp" />
     <ClCompile Include="particle_viewer\generated_particle_control.cpp" />
     <ClCompile Include="particle_viewer\generated_particle_renderer.cpp" />

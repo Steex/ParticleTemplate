@@ -5,6 +5,7 @@
 #include "emitter.h"
 #include "processor.h"
 #include "processor_factory.h"
+#include "original_values_restorer.h"
 #include "inspector.h"
 
 #include "emitter_rect.h"
@@ -16,13 +17,14 @@
 
 
 Particles::ParticleSystem::ParticleSystem(iXml *_xml)
-    : param_info     ()
-    , processors     ()
-    , max_particles  (0)
-    , particle_count (0)
-    , particle_size  (0)
-    , particle_data  (nullptr)
-    , create_acc     (0.0f)
+    : param_info      ()
+    , processors      ()
+    , values_restorer (nullptr)
+    , max_particles   (0)
+    , particle_count  (0)
+    , particle_size   (0)
+    , particle_data   (nullptr)
+    , create_acc      (0.0f)
 {
     // Prepare standard data.
     param_info.registerParam<Bool>("dead");
@@ -49,6 +51,11 @@ Particles::ParticleSystem::ParticleSystem(iXml *_xml)
         }
     }
 
+    if (!param_info.getStoredValues().empty())
+    {
+        values_restorer = new OriginalValuesRestorer(param_info);
+    }
+
     // Allocate particles.
     max_particles << _xml->getAttribute("max_particles");
     particle_size = param_info.getTotalSize();
@@ -69,6 +76,12 @@ void Particles::ParticleSystem::update(Float _tick)
     // Process existing particles.
     if (particle_count > 0)
     {
+        // Restore values.
+        if (values_restorer)
+        {
+            values_restorer->restoreValues(particle_data, particle_size, particle_count);
+        }
+
         // Update particles.
         FOREACH (ProcessorList::iterator, processor, processors)
         {
@@ -113,6 +126,18 @@ void Particles::ParticleSystem::update(Float _tick)
         FOREACH (ProcessorList::iterator, processor, processors)
         {
             (*processor)->initParticles(particle_data + particle_size * particle_count, particle_size, create_amount);
+        }
+
+        // Store values.
+        if (values_restorer)
+        {
+            values_restorer->storeValues(particle_data + particle_size * particle_count, particle_size, create_amount);
+        }
+
+        // Apply the logic.
+        FOREACH (ProcessorList::iterator, processor, processors)
+        {
+            (*processor)->updateParticles(particle_data + particle_size * particle_count, particle_size, create_amount, 0.0f);
         }
 
         // Update the particle count.

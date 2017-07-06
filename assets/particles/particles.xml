@@ -1,12 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 <particle_system format="0.1" max_particles="100">
-  <emitter></emitter>
+  <emitter>
+    <fetcher_speed type="random" min="100" max="200" />
+    <fetcher_scale type="random" min="0.5" max="2" />
+    <fetcher_angle type="random" min="0" max="360" />
+    <fetcher_color type="random" min="255,0,0" max="0,0,255" />
+    <emit_shape emit_rect="-100,-100,100,100">
+      <fetcher_fly_angle type="random" min="-135" max="-45" />
+    </emit_shape>
+  </emitter>
   <processors>
     <processor name="aging" type="aging" lifetime="1,2"/>
     <processor name="gravity" type="acceleration" acceleration="0,100"/>
     <processor name="rotation" type="rotation" rotation_speed="-180,180"/>
     <processor name="scale" type="scale_over_lifetime">
-      <fetcher_scale type="curve" value_range="0,1" curve_file="particles/test.curve" curve_name="scale" />
+      <fetcher_scale type="curve" min="0" max="1" curve_file="particles/test.curve" curve_name="scale" />
     </processor>
   </processors>
 </particle_system>

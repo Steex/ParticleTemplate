@@ -134,7 +134,8 @@
     <ClInclude Include="particle_system\base_params.h" />
     <ClInclude Include="particle_system\curve.h" />
     <ClInclude Include="particle_system\emitter.h" />
-    <ClInclude Include="particle_system\emitter_rect.h" />
+    <ClInclude Include="particle_system\emit_shape_rect.h" />
+    <ClInclude Include="particle_system\emit_shape.h" />
     <ClInclude Include="particle_system\fetcher.h" />
     <ClInclude Include="particle_system\fetcher_factory.h" />
     <ClInclude Include="particle_system\param_accessor.h" />
@@ -187,7 +188,8 @@
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='release|Win32'">
       </PrecompiledHeader>
     </ClCompile>
-    <ClCompile Include="particle_system\emitter_rect.cpp" />
+    <ClCompile Include="particle_system\emitter.cpp" />
+    <ClCompile Include="particle_system\emit_shape_rect.cpp" />
     <ClCompile Include="particle_system\fetcher_factory.cpp" />
     <ClCompile Include="particle_system\param_info_holder.cpp" />
     <ClCompile Include="particle_system\particle_system.cpp" />

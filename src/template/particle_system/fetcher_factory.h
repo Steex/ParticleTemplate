@@ -35,6 +35,10 @@ namespace Particles
         {
             return new FetcherLerp<T>(_xml);
         }
+        else if (type == "random")
+        {
+            return new FetcherRandom<T>(_xml);
+        }
         else if (type == "curve")
         {
             return new FetcherCurve<T>(_xml);

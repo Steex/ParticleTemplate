@@ -8,12 +8,6 @@
 #include "original_values_restorer.h"
 #include "inspector.h"
 
-#include "emitter_rect.h"
-#include "processor_aging.h"
-#include "processor_rotation.h"
-#include "processor_acceleration.h"
-#include "processor_scale_over_lifetime.h"
-
 
 
 Particles::ParticleSystem::ParticleSystem(iXml *_xml)
@@ -24,6 +18,7 @@ Particles::ParticleSystem::ParticleSystem(iXml *_xml)
     , particle_count  (0)
     , particle_size   (0)
     , particle_data   (nullptr)
+    , time            (0.0f)
     , create_acc      (0.0f)
 {
     // Prepare standard data.
@@ -34,8 +29,7 @@ Particles::ParticleSystem::ParticleSystem(iXml *_xml)
     param_info.registerParam<Color>("color");
 
     // Create an emitter.
-    emitter = new EmitterRect(param_info);
-    emitter->load();
+    emitter = new Emitter(_xml->getChild("emitter"), param_info);
 
     // Create processing blocks.
     if (iXml *processor_list_node = _xml->getChild("processors"))
@@ -106,6 +100,7 @@ void Particles::ParticleSystem::update(Float _tick)
     }
 
     // Emit new particles.
+    time += _tick;
     Float particle_per_second = 10;
     create_acc += _tick * particle_per_second;
     USize create_amount = (USize)create_acc;
@@ -120,7 +115,7 @@ void Particles::ParticleSystem::update(Float _tick)
         // Init new particles.
         for (USize i = 0; i < create_amount; ++i)
         {
-            emitter->createParticle(particle_data + particle_size * (particle_count + i));
+            emitter->createParticle(particle_data + particle_size * (particle_count + i), Math::fmod(time, 1.0f));
         }
 
         FOREACH (ProcessorList::iterator, processor, processors)

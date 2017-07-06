@@ -46,10 +46,28 @@ namespace Particles
 
         FetcherLerp(const Range<T>& _range): value_range(_range) {}
         FetcherLerp(const T& _min, const T& _max): value_range(_min, _max) {}
-        FetcherLerp(iXml *_xml): value_range(parse<Range<T> >(_xml->getAttribute("value_range"))) {}
+        FetcherLerp(iXml *_xml): value_range(parse<T>(_xml->getAttribute("min")), parse<T>(_xml->getAttribute("max"))) {}
         virtual ~FetcherLerp() {}
 
         virtual T fetch(Float _arg) { return Math::lerpStrict(value_range, _arg); }
+
+    private:
+
+        Range<T> value_range;
+    };
+
+
+    template<typename T>
+    class FetcherRandom: public Fetcher<T>
+    {
+    public:
+
+        FetcherRandom(const Range<T>& _range): value_range(_range) {}
+        FetcherRandom(const T& _min, const T& _max): value_range(_min, _max) {}
+        FetcherRandom(iXml *_xml): value_range(parse<T>(_xml->getAttribute("min")), parse<T>(_xml->getAttribute("max"))) {}
+        virtual ~FetcherRandom() {}
+
+        virtual T fetch(Float _arg) { return Math::random(value_range); }
 
     private:
 

@@ -64,7 +64,7 @@ namespace Particles
         : table_size  (parse<USize>(_xml->getAttribute("table_size"), 64))
         , fetch_table (table_size)
     {
-        Range<T> _value_range = parse<Range<T> >(_xml->getAttribute("value_range"));
+        Range<T> _value_range(parse<T>(_xml->getAttribute("min")), parse<T>(_xml->getAttribute("max")));
         String smooth_curve_file = _xml->getAttribute("curve_file");
         String smooth_curve_name = _xml->getAttribute("curve_name");
         iCurve *_smooth_curve = iResourceManager::inst()->getCurve(smooth_curve_file, smooth_curve_name);

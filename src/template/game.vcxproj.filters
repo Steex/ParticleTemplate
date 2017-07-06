@@ -88,9 +88,6 @@
     <ClInclude Include="particle_system\emitter.h">
       <Filter>particle_system</Filter>
     </ClInclude>
-    <ClInclude Include="particle_system\emitter_rect.h">
-      <Filter>particle_system</Filter>
-    </ClInclude>
     <ClInclude Include="particle_system\processor_aging.h">
       <Filter>particle_system</Filter>
     </ClInclude>
@@ -125,6 +122,12 @@
     <ClInclude Include="particle_system\original_values_restorer.h">
       <Filter>particle_system</Filter>
     </ClInclude>
+    <ClInclude Include="particle_system\emit_shape.h">
+      <Filter>particle_system</Filter>
+    </ClInclude>
+    <ClInclude Include="particle_system\emit_shape_rect.h">
+      <Filter>particle_system</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="common\cheat_manager.cpp">
@@ -155,9 +158,6 @@
     <ClCompile Include="particle_viewer\particle_viewer.cpp">
       <Filter>particle_viewer</Filter>
     </ClCompile>
-    <ClCompile Include="particle_system\emitter_rect.cpp">
-      <Filter>particle_system</Filter>
-    </ClCompile>
     <ClCompile Include="particle_system\processor_aging.cpp">
       <Filter>particle_system</Filter>
     </ClCompile>
@@ -184,6 +184,12 @@
       <Filter>particle_system</Filter>
     </ClCompile>
     <ClCompile Include="particle_system\original_values_restorer.cpp">
+      <Filter>particle_system</Filter>
+    </ClCompile>
+    <ClCompile Include="particle_system\emitter.cpp">
+      <Filter>particle_system</Filter>
+    </ClCompile>
+    <ClCompile Include="particle_system\emit_shape_rect.cpp">
       <Filter>particle_system</Filter>
     </ClCompile>
   </ItemGroup>

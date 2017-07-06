@@ -38,6 +38,8 @@ namespace Particles
         USize particle_count;
         USize particle_size;
         Byte *particle_data;
+
+        Float time;
         Float create_acc;
     };
 }

@@ -2,20 +2,40 @@
 #define _PSYS_EMITTER_INCLUDED_
 
 
+#include "fetcher.h"
+#include "param_accessor.h"
+
+
 namespace Particles
 {
+    class EmitShape;
+    class ParamInfoHolder;
+
+
     class Emitter
     {
     public:
 
-        virtual ~Emitter() {}
+        Emitter(iXml *_xml, ParamInfoHolder& _param_info);
+        ~Emitter();
 
-        virtual void load() = 0;
-        virtual void createParticle(Byte *_data) = 0;
+        void createParticle(Byte *_data, Float _norm_emit_time);
 
-    protected:
+    private:
 
-        Emitter() {}
+        Byte *current_particle;
+        ParamAccessor<Vector2> position;
+        ParamAccessor<Vector2> velocity;
+        ParamAccessor<Float> scale;
+        ParamAccessor<Float> angle;
+        ParamAccessor<Color> color;
+
+        Fetcher<Float> *speed_fetcher;
+        Fetcher<Float> *scale_fetcher;
+        Fetcher<Float> *angle_fetcher;
+        Fetcher<Color> *color_fetcher;
+
+        EmitShape *emit_shape;
     };
 }
 

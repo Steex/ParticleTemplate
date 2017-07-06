@@ -1,11 +1,10 @@
 #include "head.h"
 
 #include "emitter.h"
+#include "emit_shape.h"
+#include "emit_shape_factory.h"
 #include "param_info_holder.h"
 #include "fetcher_factory.h"
-
-#include "emit_shape.h"
-#include "emit_shape_rect.h"
 
 
 Particles::Emitter::Emitter(iXml *_xml, ParamInfoHolder& _param_info)
@@ -56,7 +55,7 @@ Particles::Emitter::Emitter(iXml *_xml, ParamInfoHolder& _param_info)
     // Create an emit shape.
     if (iXml *shape_node = _xml->getChild("emit_shape"))
     {
-        emit_shape = new EmitShape_Rect(shape_node);
+        emit_shape = EmitShapeFactory::create(shape_node->getAttribute("type"), shape_node);
     }
 }
 
@@ -64,7 +63,6 @@ Particles::Emitter::Emitter(iXml *_xml, ParamInfoHolder& _param_info)
 
 Particles::Emitter::~Emitter()
 {
-
 }
 
 

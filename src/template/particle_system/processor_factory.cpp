@@ -4,8 +4,8 @@
 
 
 
-const static String errorProcessorTypeExists = "The processor name \"%1%\" already exists.";
-const static String errorProcessorTypeNotFound = "The processor name \"%1%\" is not found.";
+const static String errorProcessorTypeExists   = "The processor type \"%1%\" already exists.";
+const static String errorProcessorTypeNotFound = "The processor type \"%1%\" is not found.";
 
 
 

@@ -3,6 +3,11 @@
 #include "emit_shape_rect.h"
 #include "param_info_holder.h"
 #include "fetcher_factory.h"
+#include "emit_shape_factory.h"
+
+
+
+static const Particles::EmitShapeRegistrator<Particles::EmitShape_Rect> registrator("rectangle");
 
 
 

@@ -128,6 +128,9 @@
     <ClInclude Include="particle_system\emit_shape_rect.h">
       <Filter>particle_system</Filter>
     </ClInclude>
+    <ClInclude Include="particle_system\emit_shape_factory.h">
+      <Filter>particle_system</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="common\cheat_manager.cpp">
@@ -190,6 +193,9 @@
       <Filter>particle_system</Filter>
     </ClCompile>
     <ClCompile Include="particle_system\emit_shape_rect.cpp">
+      <Filter>particle_system</Filter>
+    </ClCompile>
+    <ClCompile Include="particle_system\emit_shape_factory.cpp">
       <Filter>particle_system</Filter>
     </ClCompile>
   </ItemGroup>

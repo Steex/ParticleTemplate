@@ -5,7 +5,7 @@
     <fetcher_scale type="random" min="0.5" max="2" />
     <fetcher_angle type="random" min="0" max="360" />
     <fetcher_color type="random" min="255,0,0" max="0,0,255" />
-    <emit_shape emit_rect="-100,-100,100,100">
+    <emit_shape type="rectangle" emit_rect="-100,-100,100,100">
       <fetcher_fly_angle type="random" min="-135" max="-45" />
     </emit_shape>
   </emitter>

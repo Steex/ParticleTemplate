@@ -5,6 +5,7 @@
 #include "emitter.h"
 #include "processor.h"
 #include "processor_factory.h"
+#include "fetcher_factory.h"
 #include "original_values_restorer.h"
 #include "inspector.h"
 
@@ -18,9 +19,19 @@ Particles::ParticleSystem::ParticleSystem(iXml *_xml)
     , particle_count  (0)
     , particle_size   (0)
     , particle_data   (nullptr)
-    , time            (0.0f)
-    , create_acc      (0.0f)
+    , emit_active     (false)
+    , emit_looped     (false)
+    , emit_dencity_fetcher (nullptr)
+    , emit_duration   (1.0f)
+    , emit_time       (0.0f)
+    , emit_last_time  (0.0f)
+    , emit_times      ()
 {
+    // Load parameters.
+    emit_looped    << _xml->getAttribute("looped");
+    emit_duration  << _xml->getAttribute("duration");
+    emit_dencity_fetcher = FetcherFactory::create<Float>(_xml->getChild("fetcher_dencity"));
+
     // Prepare standard data.
     param_info.registerParam<Bool>("dead");
     param_info.registerParam<Vector2>("position");
@@ -64,6 +75,29 @@ Particles::ParticleSystem::~ParticleSystem()
 
 
 
+void Particles::ParticleSystem::start()
+{
+    emit_time = 0.0f;
+    emit_last_time = 0.0f;
+    emit_active = true;
+}
+
+
+
+void Particles::ParticleSystem::pause()
+{
+    emit_active = false;
+}
+
+
+
+void Particles::ParticleSystem::resume()
+{
+    emit_active = true;
+}
+
+
+
 void Particles::ParticleSystem::update(Float _tick)
 {
     // Process existing particles.
@@ -99,44 +133,91 @@ void Particles::ParticleSystem::update(Float _tick)
     }
 
     // Emit new particles.
-    time += _tick;
-    Float particle_per_second = 10;
-    create_acc += _tick * particle_per_second;
-    USize create_amount = (USize)create_acc;
-    if (create_amount > 1)
+    if (emit_active)
     {
-        create_acc -= create_amount;
-        create_amount = min(create_amount, max_particles - particle_count);
-
-        // Zero the particles data (including the 'dead' field).
-        memset(particle_data + particle_size * particle_count, 0, particle_size * create_amount);
-
-        // Init new particles.
-        for (USize i = 0; i < create_amount; ++i)
+        USize emit_count = processEmission(_tick);
+        if (emit_count > 0)
         {
-            emitter->createParticle(particle_data + particle_size * (particle_count + i), Math::fmod(time, 1.0f));
-        }
+            // Zero the particles data (including the 'dead' field).
+            memset(particle_data + particle_size * particle_count, 0, particle_size * emit_count);
 
-        FOREACH (ProcessorList::iterator, processor, processors)
-        {
-            (*processor)->initParticles(particle_data + particle_size * particle_count, particle_size, create_amount);
-        }
+            // Init new particles.
+            for (USize i = 0; i < emit_count; ++i)
+            {
+                emitter->createParticle(particle_data + particle_size * (particle_count + i), emit_times[i] / emit_duration);
+            }
 
-        // Store values.
-        if (values_restorer)
-        {
-            values_restorer->storeValues(particle_data + particle_size * particle_count, particle_size, create_amount);
-        }
+            FOREACH (ProcessorList::iterator, processor, processors)
+            {
+                (*processor)->initParticles(particle_data + particle_size * particle_count, particle_size, emit_count);
+            }
 
-        // Apply the logic.
-        FOREACH (ProcessorList::iterator, processor, processors)
-        {
-            (*processor)->updateParticles(particle_data + particle_size * particle_count, particle_size, create_amount, 0.0f);
-        }
+            // Store values.
+            if (values_restorer)
+            {
+                values_restorer->storeValues(particle_data + particle_size * particle_count, particle_size, emit_count);
+            }
 
-        // Update the particle count.
-        particle_count += create_amount;
+            // Apply the logic.
+            FOREACH (ProcessorList::iterator, processor, processors)
+            {
+                (*processor)->updateParticles(particle_data + particle_size * particle_count, particle_size, emit_count, 0.0f);
+            }
+
+            // Update the particle count.
+            particle_count += emit_count;
+        }
     }
+}
+
+
+
+USize Particles::ParticleSystem::processEmission(Float _tick)
+{
+    if (!emit_active)
+    {
+        return 0;
+    }
+
+    Float next_time = emit_time + _tick;
+    if (!emit_looped && next_time >= emit_duration)
+    {
+        next_time = emit_duration;
+        emit_active = false;
+    }
+
+    Float emit_dencity = emit_dencity_fetcher->fetch(Math::fmod(emit_time, emit_duration) / emit_duration);
+    Float emit_interval = 1.0f / emit_dencity;
+    USize emit_count = (USize)((next_time - emit_last_time) / emit_interval);
+
+    if (emit_count > 0)
+    {
+        if (emit_times.size() < emit_count)
+        {
+            emit_times.resize(emit_count + 4); // add some extra space to minimize potential reallocations
+        }
+
+        if (emit_looped)
+        {
+            for (USize i = 0; i < emit_count; ++i)
+            {
+                emit_times[i] = Math::fmod(emit_last_time + emit_interval * (i + 1), emit_duration);
+            }
+        }
+        else
+        {
+            for (USize i = 0; i < emit_count; ++i)
+            {
+                emit_times[i] = emit_last_time + emit_interval * i;
+            }
+        }
+
+        emit_last_time += emit_interval * emit_count;
+    }
+
+    emit_time = next_time;
+
+    return emit_count;
 }
 
 

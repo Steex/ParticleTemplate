@@ -3,6 +3,7 @@
 
 
 #include "param_info_holder.h"
+#include "fetcher.h"
 
 
 namespace Particles
@@ -20,6 +21,11 @@ namespace Particles
         ParticleSystem(iXml *_xml);
         ~ParticleSystem();
 
+        Bool isActive() const { return emit_active; }
+        void start();
+        void pause();
+        void resume();
+
         void update(Float _tick);
         void inspect(Inspector *_inspector) const;
 
@@ -28,6 +34,9 @@ namespace Particles
     private:
 
         typedef std::vector<Processor*> ProcessorList;
+
+
+        USize processEmission(Float _tick);
 
 
         ParamInfoHolder param_info;
@@ -39,8 +48,13 @@ namespace Particles
         USize particle_size;
         Byte *particle_data;
 
-        Float time;
-        Float create_acc;
+        Bool emit_active;
+        Bool emit_looped;
+        Fetcher<Float> *emit_dencity_fetcher;
+        Float emit_duration;
+        Float emit_time;
+        Float emit_last_time;
+        std::vector<Float> emit_times; // wrapped by the emit_duration
     };
 }
 

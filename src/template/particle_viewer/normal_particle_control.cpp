@@ -60,6 +60,9 @@ void NormalParticleControl::loadIni(iIni *_ini, const String& _section)
 
     // Reinitialize the renderer.
     m_renderer->init(m_system ? m_system->getMaxCount() : 0, m_texture);
+
+    // Start the system.
+    m_system->start();
 }
 
 //-----------------------------------------------------------------------

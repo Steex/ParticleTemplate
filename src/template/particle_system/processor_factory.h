@@ -15,7 +15,7 @@ namespace Particles
         typedef Processor* (*ProcessorCreator)(iXml*, ParamInfoHolder&);
 
         static void registerCreator(const String& _type, ProcessorCreator _creator);
-        static Processor* create(const String& _type, iXml *_xml, ParamInfoHolder& _param_info);
+        static Processor* create(iXml *_xml, ParamInfoHolder& _param_info);
 
     private:
 

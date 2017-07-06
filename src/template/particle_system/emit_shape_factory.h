@@ -14,7 +14,7 @@ namespace Particles
         typedef EmitShape* (*EmitShapeCreator)(iXml*);
 
         static void registerCreator(const String& _type, EmitShapeCreator _creator);
-        static EmitShape* create(const String& _type, iXml *_xml);
+        static EmitShape* create(iXml *_xml);
 
     private:
 

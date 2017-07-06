@@ -55,7 +55,7 @@ Particles::Emitter::Emitter(iXml *_xml, ParamInfoHolder& _param_info)
     // Create an emit shape.
     if (iXml *shape_node = _xml->getChild("emit_shape"))
     {
-        emit_shape = EmitShapeFactory::create(shape_node->getAttribute("type"), shape_node);
+        emit_shape = EmitShapeFactory::create(shape_node);
     }
 }
 

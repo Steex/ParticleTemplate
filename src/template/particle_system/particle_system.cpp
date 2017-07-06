@@ -21,7 +21,7 @@ Particles::ParticleSystem::ParticleSystem(iXml *_xml)
     , particle_data   (nullptr)
     , emit_active     (false)
     , emit_looped     (false)
-    , emit_dencity_fetcher (nullptr)
+    , emit_density_fetcher (nullptr)
     , emit_duration   (1.0f)
     , emit_time       (0.0f)
     , emit_last_time  (0.0f)
@@ -30,7 +30,7 @@ Particles::ParticleSystem::ParticleSystem(iXml *_xml)
     // Load parameters.
     emit_looped    << _xml->getAttribute("looped");
     emit_duration  << _xml->getAttribute("duration");
-    emit_dencity_fetcher = FetcherFactory::create<Float>(_xml->getChild("fetcher_dencity"));
+    emit_density_fetcher = FetcherFactory::create<Float>(_xml->getChild("fetcher_density"));
 
     // Prepare standard data.
     param_info.registerParam<Bool>("dead");
@@ -186,7 +186,7 @@ USize Particles::ParticleSystem::processEmission(Float _tick)
         emit_active = false;
     }
 
-    Float emit_dencity = emit_dencity_fetcher->fetch(Math::fmod(emit_time, emit_duration) / emit_duration);
+    Float emit_dencity = emit_density_fetcher->fetch(Math::fmod(emit_time, emit_duration) / emit_duration);
     Float emit_interval = 1.0f / emit_dencity;
     USize emit_count = (USize)((next_time - emit_last_time) / emit_interval);
 

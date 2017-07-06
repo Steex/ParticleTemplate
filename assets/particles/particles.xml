@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <particle_system format="0.1" duration="5" looped="1" max_particles="1000">
-  <fetcher_dencity type="lerp" min="0" max="100" />
+  <fetcher_density type="lerp" min="0" max="100" />
   <emitter>
     <fetcher_speed type="random" min="300" max="400" />
     <fetcher_scale type="random" min="0.2" max="0.4" />

@@ -50,7 +50,7 @@ namespace Particles
 
         Bool emit_active;
         Bool emit_looped;
-        Fetcher<Float> *emit_dencity_fetcher;
+        Fetcher<Float> *emit_density_fetcher;
         Float emit_duration;
         Float emit_time;
         Float emit_last_time;

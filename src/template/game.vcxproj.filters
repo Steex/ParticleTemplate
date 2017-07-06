@@ -13,6 +13,12 @@
     <Filter Include="particle_viewer">
       <UniqueIdentifier>{75c71d1a-b90e-4e25-8552-e5f517e79cbf}</UniqueIdentifier>
     </Filter>
+    <Filter Include="particle_system\emit_shapes">
+      <UniqueIdentifier>{c8f84745-6882-481e-95f8-980332d4df50}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="particle_system\processors">
+      <UniqueIdentifier>{a2d83413-ce10-45c9-b1b5-ea2eb95296e8}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <None Include="app.ico">
@@ -70,12 +76,6 @@
     <ClInclude Include="particle_system\processor.h">
       <Filter>particle_system</Filter>
     </ClInclude>
-    <ClInclude Include="particle_system\processor_acceleration.h">
-      <Filter>particle_system</Filter>
-    </ClInclude>
-    <ClInclude Include="particle_system\processor_rotation.h">
-      <Filter>particle_system</Filter>
-    </ClInclude>
     <ClInclude Include="particle_viewer\particle_viewer.h">
       <Filter>particle_viewer</Filter>
     </ClInclude>
@@ -88,16 +88,10 @@
     <ClInclude Include="particle_system\emitter.h">
       <Filter>particle_system</Filter>
     </ClInclude>
-    <ClInclude Include="particle_system\processor_aging.h">
-      <Filter>particle_system</Filter>
-    </ClInclude>
     <ClInclude Include="particle_system\curve.h">
       <Filter>particle_system</Filter>
     </ClInclude>
     <ClInclude Include="particle_system\fetcher.h">
-      <Filter>particle_system</Filter>
-    </ClInclude>
-    <ClInclude Include="particle_system\processor_scale_over_lifetime.h">
       <Filter>particle_system</Filter>
     </ClInclude>
     <ClInclude Include="particle_viewer\normal_particle_control.h">
@@ -125,11 +119,23 @@
     <ClInclude Include="particle_system\emit_shape.h">
       <Filter>particle_system</Filter>
     </ClInclude>
-    <ClInclude Include="particle_system\emit_shape_rect.h">
-      <Filter>particle_system</Filter>
-    </ClInclude>
     <ClInclude Include="particle_system\emit_shape_factory.h">
       <Filter>particle_system</Filter>
+    </ClInclude>
+    <ClInclude Include="particle_system\emit_shapes\emit_shape_rect.h">
+      <Filter>particle_system\emit_shapes</Filter>
+    </ClInclude>
+    <ClInclude Include="particle_system\processors\processor_acceleration.h">
+      <Filter>particle_system\processors</Filter>
+    </ClInclude>
+    <ClInclude Include="particle_system\processors\processor_aging.h">
+      <Filter>particle_system\processors</Filter>
+    </ClInclude>
+    <ClInclude Include="particle_system\processors\processor_rotation.h">
+      <Filter>particle_system\processors</Filter>
+    </ClInclude>
+    <ClInclude Include="particle_system\processors\processor_scale_over_lifetime.h">
+      <Filter>particle_system\processors</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -152,20 +158,8 @@
     <ClCompile Include="particle_system\particle_system.cpp">
       <Filter>particle_system</Filter>
     </ClCompile>
-    <ClCompile Include="particle_system\processor_acceleration.cpp">
-      <Filter>particle_system</Filter>
-    </ClCompile>
-    <ClCompile Include="particle_system\processor_rotation.cpp">
-      <Filter>particle_system</Filter>
-    </ClCompile>
     <ClCompile Include="particle_viewer\particle_viewer.cpp">
       <Filter>particle_viewer</Filter>
-    </ClCompile>
-    <ClCompile Include="particle_system\processor_aging.cpp">
-      <Filter>particle_system</Filter>
-    </ClCompile>
-    <ClCompile Include="particle_system\processor_scale_over_lifetime.cpp">
-      <Filter>particle_system</Filter>
     </ClCompile>
     <ClCompile Include="particle_viewer\normal_particle_control.cpp">
       <Filter>particle_viewer</Filter>
@@ -192,11 +186,23 @@
     <ClCompile Include="particle_system\emitter.cpp">
       <Filter>particle_system</Filter>
     </ClCompile>
-    <ClCompile Include="particle_system\emit_shape_rect.cpp">
-      <Filter>particle_system</Filter>
-    </ClCompile>
     <ClCompile Include="particle_system\emit_shape_factory.cpp">
       <Filter>particle_system</Filter>
+    </ClCompile>
+    <ClCompile Include="particle_system\emit_shapes\emit_shape_rect.cpp">
+      <Filter>particle_system\emit_shapes</Filter>
+    </ClCompile>
+    <ClCompile Include="particle_system\processors\processor_acceleration.cpp">
+      <Filter>particle_system\processors</Filter>
+    </ClCompile>
+    <ClCompile Include="particle_system\processors\processor_aging.cpp">
+      <Filter>particle_system\processors</Filter>
+    </ClCompile>
+    <ClCompile Include="particle_system\processors\processor_rotation.cpp">
+      <Filter>particle_system\processors</Filter>
+    </ClCompile>
+    <ClCompile Include="particle_system\processors\processor_scale_over_lifetime.cpp">
+      <Filter>particle_system\processors</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

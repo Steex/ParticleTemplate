@@ -1,16 +1,16 @@
 #include "head.h"
 
 #include "processor_rotation.h"
-#include "param_info_holder.h"
-#include "processor_factory.h"
+#include "../param_info_holder.h"
+#include "../processor_factory.h"
 
 
 
-static const Particles::ProcessorRegistrator<Particles::ProcessorRotation> registrator("rotation");
+static const Particles::ProcessorRegistrator<Particles::Processor_Rotation> registrator("rotation");
 
 
 
-Particles::ProcessorRotation::ProcessorRotation(iXml *_xml, ParamInfoHolder& _param_info)
+Particles::Processor_Rotation::Processor_Rotation(iXml *_xml, ParamInfoHolder& _param_info)
     : Processor        (_xml)
     , current_particle (nullptr)
     , angle            (current_particle, _param_info.registerParam<Float>("angle"))
@@ -24,13 +24,13 @@ Particles::ProcessorRotation::ProcessorRotation(iXml *_xml, ParamInfoHolder& _pa
 
 
 
-Particles::ProcessorRotation::~ProcessorRotation()
+Particles::Processor_Rotation::~Processor_Rotation()
 {
 }
 
 
 
-void Particles::ProcessorRotation::initParticles(Byte *_start, USize _stride, USize _count)
+void Particles::Processor_Rotation::initParticles(Byte *_start, USize _stride, USize _count)
 {
     for (USize i = 0; i < _count; ++i)
     {
@@ -42,7 +42,7 @@ void Particles::ProcessorRotation::initParticles(Byte *_start, USize _stride, US
 
 
 
-void Particles::ProcessorRotation::updateParticles(Byte *_start, USize _stride, USize _count, Float _tick)
+void Particles::Processor_Rotation::updateParticles(Byte *_start, USize _stride, USize _count, Float _tick)
 {
     for (USize i = 0; i < _count; ++i)
     {

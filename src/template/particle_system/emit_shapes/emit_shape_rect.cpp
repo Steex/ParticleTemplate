@@ -1,9 +1,9 @@
 #include "head.h"
 
 #include "emit_shape_rect.h"
-#include "param_info_holder.h"
-#include "fetcher_factory.h"
-#include "emit_shape_factory.h"
+#include "../param_info_holder.h"
+#include "../fetcher_factory.h"
+#include "../emit_shape_factory.h"
 
 
 

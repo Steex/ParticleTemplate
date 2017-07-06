@@ -2,8 +2,8 @@
 #define _PSYS_PROCESSOR_AGING_INCLUDED_
 
 
-#include "processor.h"
-#include "param_accessor.h"
+#include "../processor.h"
+#include "../param_accessor.h"
 
 
 namespace Particles
@@ -11,12 +11,12 @@ namespace Particles
     class ParamInfoHolder;
 
 
-    class ProcessorAging: public Processor
+    class Processor_Aging: public Processor
     {
     public:
 
-        ProcessorAging(iXml *_xml, ParamInfoHolder& _param_info);
-        virtual ~ProcessorAging();
+        Processor_Aging(iXml *_xml, ParamInfoHolder& _param_info);
+        virtual ~Processor_Aging();
 
         virtual void initParticles(Byte *_start, USize _stride, USize _count);
         virtual void updateParticles(Byte *_start, USize _stride, USize _count, Float _tick);

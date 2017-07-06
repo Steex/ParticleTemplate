@@ -1,16 +1,16 @@
 #include "head.h"
 
 #include "processor_aging.h"
-#include "param_info_holder.h"
-#include "processor_factory.h"
+#include "../param_info_holder.h"
+#include "../processor_factory.h"
 
 
 
-static const Particles::ProcessorRegistrator<Particles::ProcessorAging> registrator("aging");
+static const Particles::ProcessorRegistrator<Particles::Processor_Aging> registrator("aging");
 
 
 
-Particles::ProcessorAging::ProcessorAging(iXml *_xml, ParamInfoHolder& _param_info)
+Particles::Processor_Aging::Processor_Aging(iXml *_xml, ParamInfoHolder& _param_info)
     : Processor        (_xml)
     , current_particle (nullptr)
     , age              (current_particle, _param_info.registerParam<Float>("age"))
@@ -23,13 +23,13 @@ Particles::ProcessorAging::ProcessorAging(iXml *_xml, ParamInfoHolder& _param_in
 
 
 
-Particles::ProcessorAging::~ProcessorAging()
+Particles::Processor_Aging::~Processor_Aging()
 {
 }
 
 
 
-void Particles::ProcessorAging::initParticles(Byte *_start, USize _stride, USize _count)
+void Particles::Processor_Aging::initParticles(Byte *_start, USize _stride, USize _count)
 {
     for (USize i = 0; i < _count; ++i)
     {
@@ -42,7 +42,7 @@ void Particles::ProcessorAging::initParticles(Byte *_start, USize _stride, USize
 
 
 
-void Particles::ProcessorAging::updateParticles(Byte *_start, USize _stride, USize _count, Float _tick)
+void Particles::Processor_Aging::updateParticles(Byte *_start, USize _stride, USize _count, Float _tick)
 {
     for (USize i = 0; i < _count; ++i)
     {

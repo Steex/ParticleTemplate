@@ -2,9 +2,9 @@
 #define _PSYS_PROCESSOR_SCALE_OVER_LIFETIME_INCLUDED_
 
 
-#include "processor.h"
-#include "param_accessor.h"
-#include "fetcher.h"
+#include "../processor.h"
+#include "../param_accessor.h"
+#include "../fetcher.h"
 
 
 namespace Particles
@@ -12,12 +12,12 @@ namespace Particles
     class ParamInfoHolder;
 
 
-    class ProcessorScaleOverLifetime: public Processor
+    class Processor_ScaleOverLifetime: public Processor
     {
     public:
 
-        ProcessorScaleOverLifetime(iXml *_xml, ParamInfoHolder& _param_info);
-        virtual ~ProcessorScaleOverLifetime();
+        Processor_ScaleOverLifetime(iXml *_xml, ParamInfoHolder& _param_info);
+        virtual ~Processor_ScaleOverLifetime();
 
         virtual void initParticles(Byte *_start, USize _stride, USize _count);
         virtual void updateParticles(Byte *_start, USize _stride, USize _count, Float _tick);

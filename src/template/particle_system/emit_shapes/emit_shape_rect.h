@@ -2,8 +2,8 @@
 #define _PSYS_EMIT_SHAPE_RECT_INCLUDED_
 
 
-#include "emit_shape.h"
-#include "fetcher.h"
+#include "../emit_shape.h"
+#include "../fetcher.h"
 
 
 namespace Particles

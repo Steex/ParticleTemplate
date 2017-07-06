@@ -2,8 +2,8 @@
 #define _PSYS_PROCESSOR_ACCELERATION_INCLUDED_
 
 
-#include "processor.h"
-#include "param_accessor.h"
+#include "../processor.h"
+#include "../param_accessor.h"
 
 
 namespace Particles
@@ -11,12 +11,12 @@ namespace Particles
     class ParamInfoHolder;
 
 
-    class ProcessorAcceleration: public Processor
+    class Processor_Acceleration: public Processor
     {
     public:
 
-        ProcessorAcceleration(iXml *_xml, ParamInfoHolder& _param_info);
-        virtual ~ProcessorAcceleration();
+        Processor_Acceleration(iXml *_xml, ParamInfoHolder& _param_info);
+        virtual ~Processor_Acceleration();
 
         virtual void initParticles(Byte *_start, USize _stride, USize _count);
         virtual void updateParticles(Byte *_start, USize _stride, USize _count, Float _tick);

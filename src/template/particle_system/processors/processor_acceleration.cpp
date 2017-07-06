@@ -1,16 +1,16 @@
 #include "head.h"
 
 #include "processor_acceleration.h"
-#include "param_info_holder.h"
-#include "processor_factory.h"
+#include "../param_info_holder.h"
+#include "../processor_factory.h"
 
 
 
-static const Particles::ProcessorRegistrator<Particles::ProcessorAcceleration> registrator("acceleration");
+static const Particles::ProcessorRegistrator<Particles::Processor_Acceleration> registrator("acceleration");
 
 
 
-Particles::ProcessorAcceleration::ProcessorAcceleration(iXml *_xml, ParamInfoHolder& _param_info)
+Particles::Processor_Acceleration::Processor_Acceleration(iXml *_xml, ParamInfoHolder& _param_info)
     : Processor        (_xml)
     , current_particle (nullptr)
     , position         (current_particle, _param_info.registerParam<Vector2>("position"))
@@ -22,19 +22,19 @@ Particles::ProcessorAcceleration::ProcessorAcceleration(iXml *_xml, ParamInfoHol
 
 
 
-Particles::ProcessorAcceleration::~ProcessorAcceleration()
+Particles::Processor_Acceleration::~Processor_Acceleration()
 {
 }
 
 
 
-void Particles::ProcessorAcceleration::initParticles(Byte *_start, USize _stride, USize _count)
+void Particles::Processor_Acceleration::initParticles(Byte *_start, USize _stride, USize _count)
 {
 }
 
 
 
-void Particles::ProcessorAcceleration::updateParticles(Byte *_start, USize _stride, USize _count, Float _tick)
+void Particles::Processor_Acceleration::updateParticles(Byte *_start, USize _stride, USize _count, Float _tick)
 {
     for (USize i = 0; i < _count; ++i)
     {

@@ -29,19 +29,19 @@ namespace Particles
         String type = _xml->getAttribute("type");
         if (type == "const")
         {
-            return new FetcherConst<T>(_xml);
+            return new Fetcher_Const<T>(_xml);
         }
         else if (type == "lerp")
         {
-            return new FetcherLerp<T>(_xml);
+            return new Fetcher_Lerp<T>(_xml);
         }
         else if (type == "random")
         {
-            return new FetcherRandom<T>(_xml);
+            return new Fetcher_Random<T>(_xml);
         }
         else if (type == "curve")
         {
-            return new FetcherCurve<T>(_xml);
+            return new Fetcher_Curve<T>(_xml);
         }
         else
         {

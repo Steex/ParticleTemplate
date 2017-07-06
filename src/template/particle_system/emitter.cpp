@@ -31,7 +31,7 @@ Particles::Emitter::Emitter(iXml *_xml, ParamInfoHolder& _param_info)
     }
     else
     {
-        scale_fetcher = new FetcherConst<Float>(1.0f);
+        scale_fetcher = new Fetcher_Const<Float>(1.0f);
     }
 
     if (iXml *fetcher_node = _xml->getChild("fetcher_angle"))
@@ -40,7 +40,7 @@ Particles::Emitter::Emitter(iXml *_xml, ParamInfoHolder& _param_info)
     }
     else
     {
-        angle_fetcher = new FetcherConst<Float>(0.0f);
+        angle_fetcher = new Fetcher_Const<Float>(0.0f);
     }
 
     if (iXml *fetcher_node = _xml->getChild("fetcher_color"))
@@ -49,7 +49,7 @@ Particles::Emitter::Emitter(iXml *_xml, ParamInfoHolder& _param_info)
     }
     else
     {
-        color_fetcher = new FetcherConst<Color>(Colors::White);
+        color_fetcher = new Fetcher_Const<Color>(Colors::White);
     }
 
     // Create an emit shape.

@@ -23,13 +23,13 @@ namespace Particles
 
 
     template<typename T>
-    class FetcherConst: public Fetcher<T>
+    class Fetcher_Const: public Fetcher<T>
     {
     public:
 
-        FetcherConst(const T& _value): value(_value) {}
-        FetcherConst(iXml *_xml): value(parse<T>(_xml->getAttribute("value"))) {}
-        virtual ~FetcherConst() {}
+        Fetcher_Const(const T& _value): value(_value) {}
+        Fetcher_Const(iXml *_xml): value(parse<T>(_xml->getAttribute("value"))) {}
+        virtual ~Fetcher_Const() {}
 
         virtual T fetch(Float _arg) { return value; }
 
@@ -40,14 +40,14 @@ namespace Particles
 
 
     template<typename T>
-    class FetcherLerp: public Fetcher<T>
+    class Fetcher_Lerp: public Fetcher<T>
     {
     public:
 
-        FetcherLerp(const Range<T>& _range): value_range(_range) {}
-        FetcherLerp(const T& _min, const T& _max): value_range(_min, _max) {}
-        FetcherLerp(iXml *_xml): value_range(parse<T>(_xml->getAttribute("min")), parse<T>(_xml->getAttribute("max"))) {}
-        virtual ~FetcherLerp() {}
+        Fetcher_Lerp(const Range<T>& _range): value_range(_range) {}
+        Fetcher_Lerp(const T& _min, const T& _max): value_range(_min, _max) {}
+        Fetcher_Lerp(iXml *_xml): value_range(parse<T>(_xml->getAttribute("min")), parse<T>(_xml->getAttribute("max"))) {}
+        virtual ~Fetcher_Lerp() {}
 
         virtual T fetch(Float _arg) { return Math::lerpStrict(value_range, _arg); }
 
@@ -58,14 +58,14 @@ namespace Particles
 
 
     template<typename T>
-    class FetcherRandom: public Fetcher<T>
+    class Fetcher_Random: public Fetcher<T>
     {
     public:
 
-        FetcherRandom(const Range<T>& _range): value_range(_range) {}
-        FetcherRandom(const T& _min, const T& _max): value_range(_min, _max) {}
-        FetcherRandom(iXml *_xml): value_range(parse<T>(_xml->getAttribute("min")), parse<T>(_xml->getAttribute("max"))) {}
-        virtual ~FetcherRandom() {}
+        Fetcher_Random(const Range<T>& _range): value_range(_range) {}
+        Fetcher_Random(const T& _min, const T& _max): value_range(_min, _max) {}
+        Fetcher_Random(iXml *_xml): value_range(parse<T>(_xml->getAttribute("min")), parse<T>(_xml->getAttribute("max"))) {}
+        virtual ~Fetcher_Random() {}
 
         virtual T fetch(Float _arg) { return Math::random(value_range); }
 
@@ -76,13 +76,13 @@ namespace Particles
 
 
     template<typename T>
-    class FetcherCurve: public Fetcher<T>
+    class Fetcher_Curve: public Fetcher<T>
     {
     public:
 
-        FetcherCurve(const Curve<T>& _curve): curve(_curve) {}
-        FetcherCurve(iXml *_xml): curve(_xml) {}
-        virtual ~FetcherCurve() {}
+        Fetcher_Curve(const Curve<T>& _curve): curve(_curve) {}
+        Fetcher_Curve(iXml *_xml): curve(_xml) {}
+        virtual ~Fetcher_Curve() {}
 
         virtual T fetch(Float _arg) { return curve(_arg); }
 

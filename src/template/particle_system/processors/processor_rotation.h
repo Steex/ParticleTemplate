@@ -2,8 +2,8 @@
 #define _PSYS_PROCESSOR_ROTATION_INCLUDED_
 
 
-#include "processor.h"
-#include "param_accessor.h"
+#include "../processor.h"
+#include "../param_accessor.h"
 
 
 namespace Particles
@@ -11,12 +11,12 @@ namespace Particles
     class ParamInfoHolder;
 
 
-    class ProcessorRotation: public Processor
+    class Processor_Rotation: public Processor
     {
     public:
 
-        ProcessorRotation(iXml *_xml, ParamInfoHolder& _param_info);
-        virtual ~ProcessorRotation();
+        Processor_Rotation(iXml *_xml, ParamInfoHolder& _param_info);
+        virtual ~Processor_Rotation();
 
         virtual void initParticles(Byte *_start, USize _stride, USize _count);
         virtual void updateParticles(Byte *_start, USize _stride, USize _count, Float _tick);

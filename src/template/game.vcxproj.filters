@@ -137,6 +137,9 @@
     <ClInclude Include="particle_system\processors\processor_scale_over_lifetime.h">
       <Filter>particle_system\processors</Filter>
     </ClInclude>
+    <ClInclude Include="particle_system\emit_controller.h">
+      <Filter>particle_system</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="common\cheat_manager.cpp">
@@ -203,6 +206,9 @@
     </ClCompile>
     <ClCompile Include="particle_system\processors\processor_scale_over_lifetime.cpp">
       <Filter>particle_system\processors</Filter>
+    </ClCompile>
+    <ClCompile Include="particle_system\emit_controller.cpp">
+      <Filter>particle_system</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

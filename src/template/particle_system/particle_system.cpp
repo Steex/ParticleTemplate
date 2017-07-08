@@ -3,6 +3,7 @@
 #include "particle_system.h"
 #include "base_params.h"
 #include "emitter.h"
+#include "emit_controller.h"
 #include "processor.h"
 #include "processor_factory.h"
 #include "fetcher_factory.h"
@@ -13,25 +14,15 @@
 
 Particles::ParticleSystem::ParticleSystem(iXml *_xml)
     : param_info      ()
+    , emitter         (nullptr)
+    , emit_controller (nullptr)
     , processors      ()
     , values_restorer (nullptr)
     , max_particles   (0)
     , particle_count  (0)
     , particle_size   (0)
     , particle_data   (nullptr)
-    , emit_active     (false)
-    , emit_looped     (false)
-    , emit_density_fetcher (nullptr)
-    , emit_duration   (1.0f)
-    , emit_time       (0.0f)
-    , emit_last_time  (0.0f)
-    , emit_times      ()
 {
-    // Load parameters.
-    emit_looped    << _xml->getAttribute("looped");
-    emit_duration  << _xml->getAttribute("duration");
-    emit_density_fetcher = FetcherFactory::create<Float>(_xml->getChild("fetcher_density"));
-
     // Prepare standard data.
     param_info.registerParam<Bool>("dead");
     param_info.registerParam<Vector2>("position");
@@ -39,8 +30,9 @@ Particles::ParticleSystem::ParticleSystem(iXml *_xml)
     param_info.registerParam<Float>("angle");
     param_info.registerParam<Color>("color");
 
-    // Create an emitter.
+    // Create an emitter and an emit controller.
     emitter = new Emitter(_xml->getChild("emitter"), param_info);
+    emit_controller = new EmitController(_xml->getChild("emit_controller"));
 
     // Create processing blocks.
     if (iXml *processor_list_node = _xml->getChild("processors"))
@@ -75,25 +67,30 @@ Particles::ParticleSystem::~ParticleSystem()
 
 
 
+Bool Particles::ParticleSystem::isActive() const
+{
+    return emit_controller->isActive();
+}
+
+
+
 void Particles::ParticleSystem::start()
 {
-    emit_time = 0.0f;
-    emit_last_time = 0.0f;
-    emit_active = true;
+    emit_controller->start();
 }
 
 
 
 void Particles::ParticleSystem::pause()
 {
-    emit_active = false;
+    emit_controller->pause();
 }
 
 
 
 void Particles::ParticleSystem::resume()
 {
-    emit_active = true;
+    emit_controller->resume();
 }
 
 
@@ -133,91 +130,41 @@ void Particles::ParticleSystem::update(Float _tick)
     }
 
     // Emit new particles.
-    if (emit_active)
-    {
-        USize emit_count = processEmission(_tick);
-        if (emit_count > 0)
-        {
-            // Zero the particles data (including the 'dead' field).
-            memset(particle_data + particle_size * particle_count, 0, particle_size * emit_count);
-
-            // Init new particles.
-            for (USize i = 0; i < emit_count; ++i)
-            {
-                emitter->createParticle(particle_data + particle_size * (particle_count + i), emit_times[i] / emit_duration);
-            }
-
-            FOREACH (ProcessorList::iterator, processor, processors)
-            {
-                (*processor)->initParticles(particle_data + particle_size * particle_count, particle_size, emit_count);
-            }
-
-            // Store values.
-            if (values_restorer)
-            {
-                values_restorer->storeValues(particle_data + particle_size * particle_count, particle_size, emit_count);
-            }
-
-            // Apply the logic.
-            FOREACH (ProcessorList::iterator, processor, processors)
-            {
-                (*processor)->updateParticles(particle_data + particle_size * particle_count, particle_size, emit_count, 0.0f);
-            }
-
-            // Update the particle count.
-            particle_count += emit_count;
-        }
-    }
-}
-
-
-
-USize Particles::ParticleSystem::processEmission(Float _tick)
-{
-    if (!emit_active)
-    {
-        return 0;
-    }
-
-    Float next_time = emit_time + _tick;
-    if (!emit_looped && next_time >= emit_duration)
-    {
-        next_time = emit_duration;
-        emit_active = false;
-    }
-
-    Float emit_dencity = emit_density_fetcher->fetch(Math::fmod(emit_time, emit_duration) / emit_duration);
-    Float emit_interval = 1.0f / emit_dencity;
-    USize emit_count = (USize)((next_time - emit_last_time) / emit_interval);
-
+    USize emit_count = emit_controller->process(_tick);
     if (emit_count > 0)
     {
-        if (emit_times.size() < emit_count)
+        // Zero the particles data (including the 'dead' field).
+        memset(particle_data + particle_size * particle_count, 0, particle_size * emit_count);
+
+        // Init new particles.
+        Float emit_duration = emit_controller->getDuration();
+        const EmitController::TimeList& emit_times = emit_controller->getTimes();
+
+        for (USize i = 0; i < emit_count; ++i)
         {
-            emit_times.resize(emit_count + 4); // add some extra space to minimize potential reallocations
+            emitter->createParticle(particle_data + particle_size * (particle_count + i), emit_times[i] / emit_duration);
         }
 
-        if (emit_looped)
+        FOREACH (ProcessorList::iterator, processor, processors)
         {
-            for (USize i = 0; i < emit_count; ++i)
-            {
-                emit_times[i] = Math::fmod(emit_last_time + emit_interval * (i + 1), emit_duration);
-            }
-        }
-        else
-        {
-            for (USize i = 0; i < emit_count; ++i)
-            {
-                emit_times[i] = emit_last_time + emit_interval * i;
-            }
+            (*processor)->initParticles(particle_data + particle_size * particle_count, particle_size, emit_count);
         }
 
-        emit_last_time += emit_interval * emit_count;
+        // Store values.
+        if (values_restorer)
+        {
+            values_restorer->storeValues(particle_data + particle_size * particle_count, particle_size, emit_count);
+        }
+
+        // Apply the logic.
+        FOREACH (ProcessorList::iterator, processor, processors)
+        {
+            (*processor)->updateParticles(particle_data + particle_size * particle_count, particle_size, emit_count, 0.0f);
+        }
+
+        // Update the particle count.
+        particle_count += emit_count;
     }
-
-    emit_time = next_time;
-
-    return emit_count;
 }
 
 

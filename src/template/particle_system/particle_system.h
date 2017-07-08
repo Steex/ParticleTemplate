@@ -9,6 +9,7 @@
 namespace Particles
 {
     class Emitter;
+    class EmitController;
     class Processor;
     class OriginalValuesRestorer;
     class Inspector;
@@ -21,7 +22,7 @@ namespace Particles
         ParticleSystem(iXml *_xml);
         ~ParticleSystem();
 
-        Bool isActive() const { return emit_active; }
+        Bool isActive() const;
         void start();
         void pause();
         void resume();
@@ -36,25 +37,15 @@ namespace Particles
         typedef std::vector<Processor*> ProcessorList;
 
 
-        USize processEmission(Float _tick);
-
-
         ParamInfoHolder param_info;
         Emitter *emitter;
+        EmitController *emit_controller;
         ProcessorList processors;
         OriginalValuesRestorer *values_restorer;
         USize max_particles;
         USize particle_count;
         USize particle_size;
         Byte *particle_data;
-
-        Bool emit_active;
-        Bool emit_looped;
-        Fetcher<Float> *emit_density_fetcher;
-        Float emit_duration;
-        Float emit_time;
-        Float emit_last_time;
-        std::vector<Float> emit_times; // wrapped by the emit_duration
     };
 }
 

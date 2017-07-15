@@ -6,7 +6,7 @@
 #define _NORMAL_PARTICLE_CONTROL_INCLUDED__
 
 
-namespace Particles
+namespace ParticlesStatic
 {
     class ParticleSystem;
 }
@@ -36,7 +36,7 @@ protected:
 
 private:
 
-    Particles::ParticleSystem *m_system;
+    ParticlesStatic::ParticleSystem *m_system;
     NormalParticleRenderer    *m_renderer;
     iTexture                  *m_texture;
 };

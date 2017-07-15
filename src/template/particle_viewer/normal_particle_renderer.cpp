@@ -4,7 +4,7 @@
 
 #include "head.h"
 #include "normal_particle_renderer.h"
-#include "../particle_system/base_params.h"
+#include "../particle_system/static/base_params.h"
 
 //-----------------------------------------------------------------------
 
@@ -90,7 +90,7 @@ void NormalParticleRenderer::inspect(const Byte *_start, USize _stride, USize _c
 {
     for (USize i = 0; i < _count; ++i)
     {
-        const Particles::BaseParticleParams *params = (const Particles::BaseParticleParams*)(_start + _stride * i);
+        const ParticlesStatic::BaseParticleParams *params = (const ParticlesStatic::BaseParticleParams*)(_start + _stride * i);
         Particle& particle = m_particles[i];
 
         // Update particle transform.

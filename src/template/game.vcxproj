@@ -131,26 +131,26 @@
     </ResourceCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="particle_system\base_params.h" />
-    <ClInclude Include="particle_system\curve.h" />
-    <ClInclude Include="particle_system\emitter.h" />
-    <ClInclude Include="particle_system\emit_controller.h" />
-    <ClInclude Include="particle_system\emit_shapes\emit_shape_rect.h" />
-    <ClInclude Include="particle_system\emit_shape_factory.h" />
-    <ClInclude Include="particle_system\emit_shape.h" />
-    <ClInclude Include="particle_system\fetcher.h" />
-    <ClInclude Include="particle_system\fetcher_factory.h" />
-    <ClInclude Include="particle_system\param_accessor.h" />
-    <ClInclude Include="particle_system\param_info_holder.h" />
-    <ClInclude Include="particle_system\particle_system.h" />
-    <ClInclude Include="particle_system\processor.h" />
-    <ClInclude Include="particle_system\processors\processor_acceleration.h" />
-    <ClInclude Include="particle_system\processors\processor_aging.h" />
-    <ClInclude Include="particle_system\processors\processor_rotation.h" />
-    <ClInclude Include="particle_system\processors\processor_scale_over_lifetime.h" />
-    <ClInclude Include="particle_system\processor_factory.h" />
-    <ClInclude Include="particle_system\inspector.h" />
-    <ClInclude Include="particle_system\original_values_restorer.h" />
+    <ClInclude Include="particle_system\static\base_params.h" />
+    <ClInclude Include="particle_system\static\curve.h" />
+    <ClInclude Include="particle_system\static\emitter.h" />
+    <ClInclude Include="particle_system\static\emit_controller.h" />
+    <ClInclude Include="particle_system\static\emit_shape.h" />
+    <ClInclude Include="particle_system\static\emit_shapes\emit_shape_rect.h" />
+    <ClInclude Include="particle_system\static\emit_shape_factory.h" />
+    <ClInclude Include="particle_system\static\fetcher.h" />
+    <ClInclude Include="particle_system\static\fetcher_factory.h" />
+    <ClInclude Include="particle_system\static\inspector.h" />
+    <ClInclude Include="particle_system\static\original_values_restorer.h" />
+    <ClInclude Include="particle_system\static\param_accessor.h" />
+    <ClInclude Include="particle_system\static\param_info_holder.h" />
+    <ClInclude Include="particle_system\static\particle_system.h" />
+    <ClInclude Include="particle_system\static\processor.h" />
+    <ClInclude Include="particle_system\static\processors\processor_acceleration.h" />
+    <ClInclude Include="particle_system\static\processors\processor_aging.h" />
+    <ClInclude Include="particle_system\static\processors\processor_rotation.h" />
+    <ClInclude Include="particle_system\static\processors\processor_scale_over_lifetime.h" />
+    <ClInclude Include="particle_system\static\processor_factory.h" />
     <ClInclude Include="particle_viewer\normal_particle_control.h" />
     <ClInclude Include="particle_viewer\generated_particle_control.h" />
     <ClInclude Include="particle_viewer\generated_particle_renderer.h" />
@@ -190,19 +190,19 @@
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='release|Win32'">
       </PrecompiledHeader>
     </ClCompile>
-    <ClCompile Include="particle_system\emitter.cpp" />
-    <ClCompile Include="particle_system\emit_controller.cpp" />
-    <ClCompile Include="particle_system\emit_shapes\emit_shape_rect.cpp" />
-    <ClCompile Include="particle_system\emit_shape_factory.cpp" />
-    <ClCompile Include="particle_system\fetcher_factory.cpp" />
-    <ClCompile Include="particle_system\param_info_holder.cpp" />
-    <ClCompile Include="particle_system\particle_system.cpp" />
-    <ClCompile Include="particle_system\processors\processor_acceleration.cpp" />
-    <ClCompile Include="particle_system\processors\processor_aging.cpp" />
-    <ClCompile Include="particle_system\processors\processor_rotation.cpp" />
-    <ClCompile Include="particle_system\processors\processor_scale_over_lifetime.cpp" />
-    <ClCompile Include="particle_system\processor_factory.cpp" />
-    <ClCompile Include="particle_system\original_values_restorer.cpp" />
+    <ClCompile Include="particle_system\static\emitter.cpp" />
+    <ClCompile Include="particle_system\static\emit_controller.cpp" />
+    <ClCompile Include="particle_system\static\emit_shapes\emit_shape_rect.cpp" />
+    <ClCompile Include="particle_system\static\emit_shape_factory.cpp" />
+    <ClCompile Include="particle_system\static\fetcher_factory.cpp" />
+    <ClCompile Include="particle_system\static\original_values_restorer.cpp" />
+    <ClCompile Include="particle_system\static\param_info_holder.cpp" />
+    <ClCompile Include="particle_system\static\particle_system.cpp" />
+    <ClCompile Include="particle_system\static\processors\processor_acceleration.cpp" />
+    <ClCompile Include="particle_system\static\processors\processor_aging.cpp" />
+    <ClCompile Include="particle_system\static\processors\processor_rotation.cpp" />
+    <ClCompile Include="particle_system\static\processors\processor_scale_over_lifetime.cpp" />
+    <ClCompile Include="particle_system\static\processor_factory.cpp" />
     <ClCompile Include="particle_viewer\normal_particle_control.cpp" />
     <ClCompile Include="particle_viewer\generated_particle_control.cpp" />
     <ClCompile Include="particle_viewer\generated_particle_renderer.cpp" />

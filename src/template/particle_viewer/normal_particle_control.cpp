@@ -5,7 +5,7 @@
 #include "head.h"
 #include "normal_particle_control.h"
 #include "normal_particle_renderer.h"
-#include "../particle_system/particle_system.h"
+#include "../particle_system/static/particle_system.h"
 
 //-----------------------------------------------------------------------
 
@@ -55,7 +55,7 @@ void NormalParticleControl::loadIni(iIni *_ini, const String& _section)
     if (!system_data_file.empty())
     {
         iXml *data_xml = iResourceManager::inst()->getXml(system_data_file);
-        m_system = new Particles::ParticleSystem(data_xml);
+        m_system = new ParticlesStatic::ParticleSystem(data_xml);
     }
 
     // Reinitialize the renderer.

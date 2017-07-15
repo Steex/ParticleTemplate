@@ -1,7 +1,7 @@
 #include "head.h"
 
 #include "tmp_particle_system.h"
-#include "particle_system/emit_controller.h"
+#include "particle_system/static/emit_controller.h"
 
 
 /*PLACEHOLDER_CURVES_DATA*/

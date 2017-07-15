@@ -4,7 +4,7 @@
 
 #include "head.h"
 #include "generated_particle_renderer.h"
-#include "../particle_system/base_params.h"
+//#include "../particle_system/base_params.h"
 
 //-----------------------------------------------------------------------
 

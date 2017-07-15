@@ -2,7 +2,7 @@
 #define _PSYS_TEMP_SPARKLES_INCLUDED_
 
 
-namespace Particles
+namespace ParticlesStatic
 {
     class EmitController;
 }
@@ -10,7 +10,7 @@ namespace Particles
 
 namespace GeneratedParticles
 {
-    using Particles::EmitController;
+    using ParticlesStatic::EmitController;
 
 
     struct BaseParticleParams

@@ -6,7 +6,6 @@
 #define _GENERATED_PARTICLE_RENDERER_INCLUDED__
 
 
-#include "../particle_system/inspector.h"
 #include "../tmp_particle_system.h"
 
 

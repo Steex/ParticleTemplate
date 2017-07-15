@@ -6,10 +6,10 @@
 #define _NORMAL_PARTICLE_RENDERER_INCLUDED__
 
 
-#include "../particle_system/inspector.h"
+#include "../particle_system/static/inspector.h"
 
 
-class NormalParticleRenderer : public Particles::Inspector
+class NormalParticleRenderer : public ParticlesStatic::Inspector
 {
 public:
 

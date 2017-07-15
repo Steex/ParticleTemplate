@@ -21,6 +21,8 @@ class GeneratedParticleControl : public cControl
 
 public:
 
+    virtual void loadIni(iIni *_ini, const String& _section);
+
     virtual void process();
     virtual void prepareDraw();
     virtual void draw();

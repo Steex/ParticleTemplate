@@ -1,6 +1,7 @@
 #include "head.h"
 
 #include "tmp_particle_system.h"
+#include "particle_system/emit_controller.h"
 
 
 /*PLACEHOLDER_CURVES_DATA*/
@@ -16,14 +17,18 @@ static const Float proc_sot_scales_table[] = {
     0.012502f, 0.009342f, 0.006183f, 0.004829f, 0.003622f, 0.002415f, 0.001207f, 0.000000f };
 
 
-GeneratedParticles::TempSparkles::TempSparkles()
-    : max_particles  (100)
-    , particle_count (0)
-    , particle_data  (nullptr)
-    , create_acc     (0.0f)
+GeneratedParticles::TempSparkles::TempSparkles(iXml *_xml)
+    : emit_controller (nullptr)
+    , max_particles   (1000)
+    , particle_count  (0)
+    , particle_data   (nullptr)
+    , create_acc      (0.0f)
 /*PLACEHOLDER_PROCESSORS_DATA_INIT*/
     , proc_accel_acceleraton (0.0f, 100.0f)
 {
+    // Create an emit controller.
+    emit_controller = new EmitController(_xml->getChild("emit_controller"));
+
     // Allocate particle data.
     particle_data = new ParticleParams[max_particles];
 }
@@ -34,6 +39,34 @@ GeneratedParticles::TempSparkles::~TempSparkles()
 {
     // Release the particle data.
     delete[] particle_data;
+}
+
+
+
+Bool GeneratedParticles::TempSparkles::isActive() const
+{
+    return emit_controller->isActive();
+}
+
+
+
+void GeneratedParticles::TempSparkles::start()
+{
+    emit_controller->start();
+}
+
+
+
+void GeneratedParticles::TempSparkles::pause()
+{
+    emit_controller->pause();
+}
+
+
+
+void GeneratedParticles::TempSparkles::resume()
+{
+    emit_controller->resume();
 }
 
 
@@ -76,23 +109,23 @@ void GeneratedParticles::TempSparkles::update(Float _tick)
     }
 
     // Emit new particles.
-    Float particle_per_second = 10;
-    create_acc += _tick * particle_per_second;
-    USize create_amount = (USize)create_acc;
-    if (create_amount > 1)
+    USize emit_count = emit_controller->process(_tick);
+    if (emit_count > 0)
     {
-        create_acc -= create_amount;
-        create_amount = min(create_amount, max_particles - particle_count);
-
         // Zero the particles data (including the 'dead' field).
-        memset(particle_data + particle_count, 0, sizeof(ParticleParams) * create_amount);
+        memset(particle_data + particle_count, 0, sizeof(ParticleParams) * emit_count);
 
         ParticleParams *first_particle = particle_data + particle_count;
-        ParticleParams *last_particle = first_particle + (create_amount - 1);
+        ParticleParams *last_particle = first_particle + (emit_count - 1);
 
         // Init new particles.
-        for (ParticleParams *particle = first_particle; particle <= last_particle; ++particle)
+        Float emit_duration = emit_controller->getDuration();
+        const Float *emit_time = &emit_controller->getTimes().front();
+
+        for (ParticleParams *particle = first_particle; particle <= last_particle; ++particle, ++emit_time)
         {
+            Float norm_emit_time = *emit_time / emit_duration;
+
 /*PLACEHOLDER_INIT*/
             particle->position = Rect(-100.0f, -100.0f, 100.0f, 100.0f).getRandomPoint();
             particle->scale = Math::random(0.8f, 1.2f);
@@ -109,11 +142,11 @@ void GeneratedParticles::TempSparkles::update(Float _tick)
             particle->velocity.x = Math::cos(angle) * speed;
             particle->velocity.y = Math::sin(angle) * speed;
 
-            particle->scale = fetchCurve(0.0f, proc_sot_scales_table, proc_sot_scales_size);
+            particle->scale = fetchCurve(norm_emit_time, proc_sot_scales_table, proc_sot_scales_size);
         }
 
         // Update the particle count.
-        particle_count += create_amount;
+        particle_count += emit_count;
     }
 }
 

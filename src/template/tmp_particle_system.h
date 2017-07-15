@@ -2,8 +2,17 @@
 #define _PSYS_TEMP_SPARKLES_INCLUDED_
 
 
+namespace Particles
+{
+    class EmitController;
+}
+
+
 namespace GeneratedParticles
 {
+    using Particles::EmitController;
+
+
     struct BaseParticleParams
     {
         Bool    dead;
@@ -39,22 +48,24 @@ namespace GeneratedParticles
     class IRenderer
     {
     public:
-
         virtual void iterate(const Byte *_start, USize _stride, USize _count) = 0;
-
     };
 
 
     class IParticleSystem
     {
     public:
+        virtual ~IParticleSystem() {}
+
+        virtual Bool isActive() const = 0;
+        virtual void start() = 0;
+        virtual void pause() = 0;
+        virtual void resume() = 0;
+
         virtual void update(Float _tick) = 0;
         virtual void render(IRenderer *_renderer) const = 0;
 
         virtual USize getMaxCount() const = 0;
-
-    protected:
-        ~IParticleSystem() {}
     };
 
 
@@ -62,8 +73,13 @@ namespace GeneratedParticles
     {
     public:
 
-        TempSparkles();
+        TempSparkles(iXml *_xml);
         virtual ~TempSparkles();
+
+        virtual Bool isActive() const;
+        virtual void start();
+        virtual void pause();
+        virtual void resume();
 
         virtual void update(Float _tick);
         virtual void render(IRenderer *_renderer) const;
@@ -82,7 +98,7 @@ namespace GeneratedParticles
         };
 
 
-        //Emitter *emitter;
+        EmitController *emit_controller;
         USize max_particles;
         USize particle_count;
         ParticleParams *particle_data;

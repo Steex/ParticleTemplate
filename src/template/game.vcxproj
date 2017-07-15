@@ -131,6 +131,8 @@
     </ResourceCompile>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="particle_system\generated_cpp\interfaces.h" />
+    <ClInclude Include="particle_system\generated_cpp\utils.h" />
     <ClInclude Include="particle_system\static\base_params.h" />
     <ClInclude Include="particle_system\static\curve.h" />
     <ClInclude Include="particle_system\static\emitter.h" />
@@ -190,6 +192,7 @@
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='release|Win32'">
       </PrecompiledHeader>
     </ClCompile>
+    <ClCompile Include="particle_system\generated_cpp\utils.cpp" />
     <ClCompile Include="particle_system\static\emitter.cpp" />
     <ClCompile Include="particle_system\static\emit_controller.cpp" />
     <ClCompile Include="particle_system\static\emit_shapes\emit_shape_rect.cpp" />

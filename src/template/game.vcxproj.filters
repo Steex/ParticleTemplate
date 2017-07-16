@@ -85,7 +85,6 @@
     <ClInclude Include="particle_viewer\generated_particle_renderer.h">
       <Filter>particle_viewer</Filter>
     </ClInclude>
-    <ClInclude Include="tmp_particle_system.h" />
     <ClInclude Include="particle_system\static\base_params.h">
       <Filter>particle_system\static</Filter>
     </ClInclude>
@@ -152,6 +151,9 @@
     <ClInclude Include="particle_system\generated_cpp\interfaces.h">
       <Filter>particle_system\generated_cpp</Filter>
     </ClInclude>
+    <ClInclude Include="particle_system\generated_cpp\system_factory.h">
+      <Filter>particle_system\generated_cpp</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="common\cheat_manager.cpp">
@@ -182,7 +184,6 @@
     <ClCompile Include="particle_viewer\generated_particle_renderer.cpp">
       <Filter>particle_viewer</Filter>
     </ClCompile>
-    <ClCompile Include="tmp_particle_system.cpp" />
     <ClCompile Include="particle_system\static\emit_controller.cpp">
       <Filter>particle_system\static</Filter>
     </ClCompile>
@@ -227,6 +228,8 @@
     </ClCompile>
     <ClCompile Include="particle_system\generated_cpp\gen\*.cpp">
       <Filter>particle_system\generated_cpp\gen</Filter>
+    <ClCompile Include="particle_system\generated_cpp\system_factory.cpp">
+      <Filter>particle_system\generated_cpp</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

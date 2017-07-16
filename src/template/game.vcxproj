@@ -132,6 +132,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="particle_system\generated_cpp\interfaces.h" />
+    <ClInclude Include="particle_system\generated_cpp\system_factory.h" />
     <ClInclude Include="particle_system\generated_cpp\utils.h" />
     <ClInclude Include="particle_system\static\base_params.h" />
     <ClInclude Include="particle_system\static\curve.h" />
@@ -159,7 +160,6 @@
     <ClInclude Include="particle_viewer\normal_particle_renderer.h" />
     <ClInclude Include="particle_viewer\particle_viewer.h" />
     <ClInclude Include="resource_debug.h" />
-    <ClInclude Include="tmp_particle_system.h" />
     <ClInclude Include="version.h" />
     <ClInclude Include="winres.h" />
     <ClInclude Include="common\cheat_manager.h" />
@@ -192,6 +192,7 @@
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='release|Win32'">
       </PrecompiledHeader>
     </ClCompile>
+    <ClCompile Include="particle_system\generated_cpp\system_factory.cpp" />
     <ClCompile Include="particle_system\generated_cpp\utils.cpp" />
     <ClCompile Include="particle_system\generated_cpp\gen\*.cpp" />
     <ClCompile Include="particle_system\static\emitter.cpp" />
@@ -213,7 +214,6 @@
     <ClCompile Include="particle_viewer\normal_particle_renderer.cpp" />
     <ClCompile Include="particle_viewer\particle_viewer.cpp" />
     <ClCompile Include="tag_manager.cpp" />
-    <ClCompile Include="tmp_particle_system.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

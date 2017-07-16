@@ -5,7 +5,8 @@
 #include "head.h"
 #include "generated_particle_control.h"
 #include "generated_particle_renderer.h"
-#include "../tmp_particle_system.h"
+#include "../particle_system/generated_cpp/interfaces.h"
+#include "../particle_system/generated_cpp/system_factory.h"
 
 //-----------------------------------------------------------------------
 
@@ -51,11 +52,12 @@ void GeneratedParticleControl::loadIni(iIni *_ini, const String& _section)
     m_system = NULL;
 
     // Create a new system.
-    String system_data_file = _ini->get(_section, "system");
+    String system_name = _ini->get(_section, "system");
+    String system_data_file = _ini->get(_section, "xml");
     if (!system_data_file.empty())
     {
         iXml *data_xml = iResourceManager::inst()->getXml(system_data_file);
-        m_system = new GeneratedParticles::TempSparkles(data_xml);
+        m_system = ParticlesGenCpp::SystemFactory::create(system_name, data_xml);
     }
 
     // Reinitialize the renderer.

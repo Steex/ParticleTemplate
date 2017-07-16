@@ -6,7 +6,7 @@
 #define _GENERATED_PARTICLE_CONTROL_INCLUDED__
 
 
-namespace GeneratedParticles
+namespace ParticlesGenCpp
 {
     class IParticleSystem;
 }
@@ -36,7 +36,7 @@ protected:
 
 private:
 
-    GeneratedParticles::IParticleSystem *m_system;
+    ParticlesGenCpp::IParticleSystem *m_system;
     GeneratedParticleRenderer *m_renderer;
     iTexture                  *m_texture;
 };

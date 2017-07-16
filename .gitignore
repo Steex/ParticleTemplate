@@ -10,7 +10,7 @@
 /gen/*.ilk
 /gen/*.pdb
 
-/src/ipch
+/src/*/ipch
 /src/**/*.user
 /src/**/*.suo
 /src/**/*.ncb

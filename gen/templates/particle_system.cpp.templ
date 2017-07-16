@@ -2,7 +2,11 @@
 
 #include "$system_name$.h"
 #include "../utils.h"
+#include "../system_factory.h"
 #include "../../static/emit_controller.h"
+
+
+static const ParticlesGenCpp::SystemRegistrator<ParticlesGenCpp::Systems::TempSparkles> registrator("$system_name$");
 
 
 /*PLACEHOLDER_CURVES_DATA*/

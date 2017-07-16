@@ -90,7 +90,7 @@ void GeneratedParticleRenderer::iterate(const Byte *_start, USize _stride, USize
 {
     for (USize i = 0; i < _count; ++i)
     {
-        const GeneratedParticles::BaseParticleParams *params = (const GeneratedParticles::BaseParticleParams*)(_start + _stride * i);
+        const ParticlesGenCpp::BaseParticleParams *params = (const ParticlesGenCpp::BaseParticleParams*)(_start + _stride * i);
         Particle& particle = m_particles[i];
 
         // Update particle transform.

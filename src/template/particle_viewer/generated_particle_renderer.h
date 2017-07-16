@@ -6,10 +6,10 @@
 #define _GENERATED_PARTICLE_RENDERER_INCLUDED__
 
 
-#include "../tmp_particle_system.h"
+#include "../particle_system/generated_cpp/interfaces.h"
 
 
-class GeneratedParticleRenderer : public GeneratedParticles::IRenderer
+class GeneratedParticleRenderer : public ParticlesGenCpp::IRenderer
 {
 public:
 

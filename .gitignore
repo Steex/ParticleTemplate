@@ -16,3 +16,5 @@
 /src/**/*.ncb
 /src/**/*.sdf
 /src/**/*.opensdf
+/src/**/*.opensdf
+/src/template/particle_system/generated_cpp/gen

@@ -1,0 +1,63 @@
+#ifndef _PSYS_GENCPP_SYSTEM_$SYSTEM_NAME$_INCLUDED_
+#define _PSYS_GENCPP_SYSTEM_$SYSTEM_NAME$_INCLUDED_
+
+
+#include <../interfaces.h>
+
+
+namespace ParticlesStatic
+{
+    class EmitController;
+}
+
+
+namespace ParticlesGenCpp
+{
+	namespace Systems
+	{
+		using ParticlesStatic::EmitController;
+
+
+		class TempSparkles: public IParticleSystem
+		{
+		public:
+
+			TempSparkles(iXml *_xml);
+			virtual ~TempSparkles();
+
+			virtual Bool isActive() const;
+			virtual void start();
+			virtual void pause();
+			virtual void resume();
+
+			virtual void update(Float _tick);
+			virtual void render(IRenderer *_renderer) const;
+
+			virtual USize getMaxCount() const { return max_particles; }
+
+		private:
+
+			struct ParticleParams: BaseParticleParams
+			{
+/*PLACEHOLDER_PARTICLE_PARAMS*/
+				Float age;
+				Float lifetime;
+				Float rot_speed;
+				Vector2 velocity;
+			};
+
+
+			EmitController *emit_controller;
+			USize max_particles;
+			USize particle_count;
+			ParticleParams *particle_data;
+			Float create_acc;
+
+/*PLACEHOLDER_PROCESSORS_DATA*/
+			Vector2 proc_accel_acceleraton;
+		};
+	}
+}
+
+
+#endif // _PSYS_GENCPP_SYSTEM_$SYSTEM_NAME$_INCLUDED_

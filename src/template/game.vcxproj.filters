@@ -226,8 +226,6 @@
     <ClCompile Include="particle_system\generated_cpp\utils.cpp">
       <Filter>particle_system\generated_cpp</Filter>
     </ClCompile>
-    <ClCompile Include="particle_system\generated_cpp\gen\*.cpp">
-      <Filter>particle_system\generated_cpp\gen</Filter>
     <ClCompile Include="particle_system\generated_cpp\system_factory.cpp">
       <Filter>particle_system\generated_cpp</Filter>
     </ClCompile>
